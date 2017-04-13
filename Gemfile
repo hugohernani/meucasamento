@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'apartment'
+# Slug Creation
+gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.1'
