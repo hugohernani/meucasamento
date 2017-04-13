@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'apartment'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.1'
   gem 'byebug', platform: :mri
