@@ -41,6 +41,8 @@ gem 'apartment'
 # Slug Creation
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.1'
   gem 'byebug', platform: :mri

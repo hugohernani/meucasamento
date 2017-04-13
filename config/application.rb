@@ -22,5 +22,7 @@ module Meucasamento
 
     config.generators.test_framework = :rspec
     config.generators.fixture_replacement :factory_girl
+
+    config.i18n.default_locale = :'pt-BR'
   end
 end
