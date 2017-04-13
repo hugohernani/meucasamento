@@ -10,9 +10,8 @@ class Event < ApplicationRecord
   enum event_type: { wedding: 0 }
 
   private
-  # Slug setup
   def slug_candidates
-    [:name, [:id]
+    [:name, [:id]]
   end
 
   # override friendly id validation message
