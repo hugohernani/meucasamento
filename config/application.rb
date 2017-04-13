@@ -8,8 +8,19 @@ Bundler.require(*Rails.groups)
 
 module Meucasamento
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    config.generators do |g|
+      g.helper_specs false
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+    end
+
+    config.autoload_paths += %W(#{config.root}/lib)
+
+    config.generators.test_framework = :rspec
+    config.generators.fixture_replacement :factory_girl
   end
 end
