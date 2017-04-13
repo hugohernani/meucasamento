@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :accounts
+
   get 'index', to: 'home#index', as: :index
 
   root to: 'home#index', constraints: EventSubdomainConstraint.new
