@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# force everyone to use same version
+ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
@@ -36,8 +38,11 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails', '~> 3.5.1'
   gem 'byebug', platform: :mri
+  gem 'dotenv-rails', '~> 2.1.1'
+  gem 'pry-rails', '~> 0.3.4'
+  gem 'factory_girl_rails', '~> 4.7.0'
 end
 
 group :development do
