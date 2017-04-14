@@ -1,0 +1,727 @@
+<a id="home"></a>
+
+<!-- ========== BANNER START ========== -->
+
+<div id="slides">
+  <div class="slides-container">
+    <%= image_tag(asset_path('hugoandluana.jpg')) %>
+    <%= image_tag(asset_path('hugoandluana.jpg')) %>
+    <%= image_tag(asset_path('hugoandluana.jpg')) %>
+    <%= image_tag(asset_path('hugoandluana.jpg')) %>
+    <%= image_tag(asset_path('hugoandluana.jpg')) %>
+  </div>
+  <div class="tint">
+    <div class="welcome text-center" data-scroll-reveal="enter from the top after 2s">
+      <h1>Hugo &amp; Luana</h1>
+      <p>vão se casar!</p>
+      <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      <p>17 de Junho, 2017</p>
+    </div>
+  </div>
+  <br />
+  <div class="countdown" data-scroll-reveal="enter from the bottom after 2.5s"></div>
+</div>
+
+<!-- ========== BANNER END ========== -->
+
+<!-- ========== MENU START ========== -->
+
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <%= image_tag asset_path 'logo', alt:"Meu Casamento", class:"img-responsive" %>
+      <% end %>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to 'Sobre nós', '#about' %>
+        </li>
+        <li>
+          <%= link_to 'Nossa história', '#story' %>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pessoas <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Mais Importantes', "#{index_path}#people" %></li>
+            <li><a href="person1.html">Person Profile Page 1</a></li>
+            <li><a href="person2.html">Person Profile Page 2</a></li>
+          </ul>
+        </li>
+        <li><%= link_to 'Eventos', '#events' %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Resumo Blog', "#{index_path}#blog" %></li>
+            <li><a href="blog.html">Blog Post List</a></li>
+            <li><a href="post.html">Blog Single Post</a></li>
+          </ul>
+        </li>
+        <li><%= link_to 'Galeria', '#gallery' %></li>
+        <li><%= link_to 'RSVP', '#rsvp' %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ========== MENU END ========== -->
+
+<!-- ========== ABOUT US START ========== -->
+
+<section id="about">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Sobre nós</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6" data-scroll-reveal="enter from the left">
+        <a href="person1.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/370x370.jpg', class: 'img-responsive img-circle', alt: '' %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <h5>Hugo Hernani</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo. Nulla ut purus vel nunc ultricies dignissim at at nunc. Vivamus tempor eget lorem non commodo. Vivamus mattis massa in ipsum molestie, eu aliquet lectus pulvinar. Etiam sapien purus, vestibulum eu sollicitudin quis, ultrices vitae justo.</p>
+        <ul class="social-icons">
+          <li>
+            <%= link_to 'http://facebook.com/', target: '_blank' do %>
+              <i class="fa fa-facebook"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'http://twitter.com/', target: '_blank' do %>
+              <i class="fa fa-twitter"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'http://google.com/', target: '_blank' do %>
+              <i class="fa fa-google-plus"></i>
+            <% end %>
+          </li>
+        </ul>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-6" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="person2.html" class="hover-effect">
+          <%= image_tag "http://placehold.it/370x370.jpg", class: "img-responsive img-circle", alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <h5>Nataly Luana</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo. Nulla ut purus vel nunc ultricies dignissim at at nunc. Vivamus tempor eget lorem non commodo. Vivamus mattis massa in ipsum molestie, eu aliquet lectus pulvinar. Etiam sapien purus, vestibulum eu sollicitudin quis, ultrices vitae justo.</p>
+        <ul class="social-icons">
+          <li>
+            <%= link_to 'http://facebook.com/', target: '_blank' do %>
+              <i class="fa fa-facebook"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'http://twitter.com/', target: '_blank' do %>
+              <i class="fa fa-twitter"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'http://google.com/', target: '_blank' do %>
+              <i class="fa fa-google-plus"></i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT US END ========== -->
+
+<!-- ========== OUR STORY START ========== -->
+
+<section id="story" style="background: #f5f4ec;">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Nossa história de amor</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4" data-scroll-reveal="enter from the left after 0.25s">
+        <a href="post.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/370x370.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <h6>Nos encontramos</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec convallis ipsum, et pharetra dolor. Praesent dignissim viverra metus sed fermentum. Nam ultricies felis ac augue convallis porttitor. Praesent enim erat, semper quis mollis eget, pharetra eu ligula. Integer commodo fringilla augue id ultricies. Maecenas vel tincidunt enim.</p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal>
+        <a href="post.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/370x370.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <h6>Primeiro encontro</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec convallis ipsum, et pharetra dolor. Praesent dignissim viverra metus sed fermentum. Nam ultricies felis ac augue convallis porttitor. Praesent enim erat, semper quis mollis eget, pharetra eu ligula. Integer commodo fringilla augue id ultricies. Maecenas vel tincidunt enim.</p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="post.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/370x370.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <h6>Noivado</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec convallis ipsum, et pharetra dolor. Praesent dignissim viverra metus sed fermentum. Nam ultricies felis ac augue convallis porttitor. Praesent enim erat, semper quis mollis eget, pharetra eu ligula. Integer commodo fringilla augue id ultricies. Maecenas vel tincidunt enim.</p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12" data-scroll-reveal>
+        <p>&nbsp;</p>
+        <a href="blog.html" class="btn btn-lg btn-primary">Leia toda a história</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== OUR STORY END ========== -->
+
+<!-- ========== PEOPLE START ========== -->
+
+<section id="people">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 heading text-center" data-scroll-reveal>
+        <h2>Pessoas Mais Importantes</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row row-margin">
+      <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
+        <h5>Douglas</h5>
+        <h6>Padinho</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
+        <a href="person1.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="person2.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <h5>Aline</h5>
+        <h6>Madrinha</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+    </div>
+    <div class="row row-margin">
+      <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
+        <h5>Geraldo Vitalino</h5>
+        <h6>Pai do Noivo</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
+        <a href="person1.html" class="hover-effect">
+          <img src="http://placehold.it/270x270.jpg" class="img-responsive img-circle" alt="" />
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="person2.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <h5>Genivaldo Gomes</h5>
+        <h6>Pai da Noiva</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
+        <h5>Lucia Helena</h5>
+        <h6>Mãe do Noivo</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
+        <a href="person1.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="person2.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <h5>Lisandra Gomes</h5>
+        <h6>Mãe da Noiva</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PEOPLE END ========== -->
+
+<!-- ========== EVENTS START ========== -->
+
+<section id="events" style="background: #f5f4ec;">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Eventos &amp; Festas</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4" data-scroll-reveal="enter from the left after 0.25s">
+        <div class="blog-short">
+          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <h5>Bride Shower</h5>
+          <h6>July 1th, 2014</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="post.html" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal>
+        <div class="blog-short">
+          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <h5>Bachelor Party</h5>
+          <h6>July 5th, 2014</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="post.html" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal="enter from the right after 0.5s">
+        <div class="blog-short">
+          <img src="http://placehold.it/370x260.jpg" class="img-responsive" alt="" />
+          <h5>Bachelorette Party</h5>
+          <h6>July 5th, 2014</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="post.html" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal="enter from the left after 0.25s">
+        <div class="blog-short">
+          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <h5>Dinner Rehersal</h5>
+          <h6>July 6th, 2014</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="post.html" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal>
+        <div class="blog-short">
+          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <h5>Cerimônia de Casamento</h5>
+          <h6>17 de Junho, 2017, 19h</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="post.html" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal="enter from the right after 0.5s">
+        <div class="blog-short">
+          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <h5>Recepção do Casamento</h5>
+          <h6>17 de Junho, 2017, 21h</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="post.html" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EVENTS END ========== -->
+
+<!-- ========== FUN FACTS START ========== -->
+
+<section id="facts">
+      <div class="parallax" data-velocity="-.4"></div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Fatos interessantes</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-xs-6" data-scroll-reveal="enter from the left">
+        <div class="img-circle">
+          <h3 class="timer" data-from="0" data-to="298"></h3>
+          <h6>Quantidade de convidados</h6>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6" data-scroll-reveal="enter from the top after 0.25s">
+        <div class="img-circle">
+          <h3 class="timer" data-from="0" data-to="2"></h3>
+          <h6>Pessoas envolvidas</h6>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6" data-scroll-reveal="enter from the bottom after 0.5s">
+        <div class="img-circle">
+          <h3 class="timer" data-from="0" data-to="999"></h3>
+          <h6>Horas trabalhadas</h6>
+        </div>
+      </div>
+      <div class="col-sm-3 col-xs-6" data-scroll-reveal="enter from the right after 0.75s">
+        <div class="img-circle">
+          <h3 class="timer" data-from="0" data-to="987"></h3>
+          <h6>Xícaras de café</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FUN FACTS END ========== -->
+
+<!-- ========== BLOG START ========== -->
+
+<section id="blog" style="background: #f5f4ec;">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Blog</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4" data-scroll-reveal="enter from the left after 0.25s">
+        <div class="blog-short">
+          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <h5>Bride Shower</h5>
+          <h6>July 1th, 2014</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal>
+        <div class="blog-short">
+          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <h5>Bachelor Party</h5>
+          <h6>July 5th, 2014</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+      <div class="col-sm-4" data-scroll-reveal="enter from the right after 0.5s">
+        <div class="blog-short">
+          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <h5>Bachelorette Party</h5>
+          <h6>July 5th, 2014</h6>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+          <p><a href="" class="btn btn-primary">Read More</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BLOG END ========== -->
+
+<!-- ========== GALLERY START ========== -->
+
+<section id="gallery">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Galeria de Imagens</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row" data-scroll-reveal>
+      <ul class="gallery">
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY END ========== -->
+
+<!-- ========== LOCATION START ========== -->
+
+<section id="location">
+
+  <!-- Google Map Script -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDoRMxiPsqJ9SUuaK1KsCAjd3gqnecjlBw&amp;sensor=false"></script>
+  <script type="text/javascript">
+
+    function initialize() {
+
+      // Create an array of styles.
+      var styles = [
+        {
+        "stylers": [
+          { "saturation": -100 },
+          { "gamma": 1 }
+        ]
+        },{
+          "featureType": "water",
+          "stylers": [
+            { "lightness": -12 }
+          ]
+        }
+      ];
+
+      // Create a new StyledMapType object, passing it the array of styles,
+      // as well as the name to be displayed on the map type control.
+      var styledMap = new google.maps.StyledMapType(styles,
+      {name: "Styled Map"});
+
+      var mapOptions = {
+        scrollwheel: false,
+        zoom: 15,
+        center: new google.maps.LatLng(-9.764997, -36.655526),
+        mapTypeControlOptions: {
+          mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+        }
+      }
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      //Associate the styled map with the MapTypeId and set it to display.
+      map.mapTypes.set('map_style', styledMap);
+      map.setMapTypeId('map_style');
+
+      setMarkers(map, places);
+    }
+
+    var places = [
+      ['Cerimônia<br>Endereço da Igreja<br>São Luiz', -9.760276, -36.656127, 1],
+      ['Recepção<br>Endereço da<br>Guariba', -9.771816, -36.659570, 1]
+    ];
+
+    function setMarkers(map, locations) {
+      // Add markers to the map
+      var image = {
+        url: '<%= asset_path 'map-marker.png' %>',
+        // This marker is 40 pixels wide by 42 pixels tall.
+        size: new google.maps.Size(62, 58),
+        // The origin for this image is 0,0.
+        origin: new google.maps.Point(0,0),
+        // The anchor for this image is the base of the pin at 20,42.
+        anchor: new google.maps.Point(20, 58)
+      };
+
+      var infowindow = new google.maps.InfoWindow();
+
+      var marker, i;
+      var markers = new Array();
+
+      for (var i = 0; i < locations.length; i++) {
+        var place = locations[i];
+        var myLatLng = new google.maps.LatLng(place[1], place[2], place[3]);
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: image,
+          title: place[0],
+          zIndex: place[3],
+          animation: google.maps.Animation.DROP
+        });
+
+        markers.push(marker);
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+          return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+      }
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
+
+  <div id="map-canvas"></div>
+
+  <!-- ========== LOCATION END ========== -->
+
+<!-- ========== REGISTRY START ========== -->
+
+<section id="registry">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12" data-scroll-reveal>
+        <p>Nós temos listas de presentes em</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 owl-carousel" data-scroll-reveal>
+        <div class="item">
+          <a href=""><span></span><img src="http://placehold.it/130x50.png" class="img-responsive" alt="" /></a>
+        </div>
+        <div class="item">
+          <a href=""><span></span><img src="http://placehold.it/130x50.png" class="img-responsive" alt="" /></a>
+        </div>
+        <div class="item">
+          <a href=""><span></span><img src="http://placehold.it/130x50.png" class="img-responsive" alt="" /></a>
+        </div>
+        <div class="item">
+          <a href=""><span></span><img src="http://placehold.it/130x50.png" class="img-responsive" alt="" /></a>
+        </div>
+        <div class="item">
+          <a href=""><span></span><img src="http://placehold.it/130x50.png" class="img-responsive" alt="" /></a>
+        </div>
+        <div class="item">
+          <a href=""><span></span><img src="http://placehold.it/130x50.png" class="img-responsive" alt="" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== REGISTRY END ========== -->
+
+<!-- ========== FOOTER START ========== -->
+
+<footer>
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-sm-12" data-scroll-reveal>
+        &copy; 2017 Casal Perfeito - Desenvolvido por <a href="#" target="_blank">Hugo Hernani</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== FOOTER END ========== -->
