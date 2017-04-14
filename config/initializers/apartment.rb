@@ -1,7 +1,7 @@
 require 'apartment/elevators/subdomain'
 
 Apartment.configure do |config|
-  config.excluded_models = %w{ Account }
+  config.excluded_models = %w{ Account Theme }
   config.tenant_names = lambda{ Event.pluck(:tenant_name) }
 end
 

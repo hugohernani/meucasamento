@@ -1,3 +1,6 @@
+default_theme = Theme.find_or_initialize_by(name: 'default', layout_name: 'default')
+default_theme.save if default_theme.changed?
+
 demo_event = Event.find_or_initialize_by(name: 'demo')
 demo_event.description = "Apenas uma demonstração"
 demo_event.event_type = Event.event_types[:wedding]

@@ -17,9 +17,9 @@ class Event < ApplicationRecord
   enum event_type: { wedding: 0 }
 
   # Associations
+  belongs_to :theme,                    class_name: Theme
   has_many :event_participants,         class_name: EventParticipant,
-                                        source: :event,
-                                        dependent: :nullify
+                                        source: :event
 
   has_many :grooms,                     class_name: Account,
                                         through: :event_participants,
@@ -28,7 +28,7 @@ class Event < ApplicationRecord
   # Scopes
   scope :weddings, -> { where(event_type: Event.event_types[:wedding]) }
 
-  
+
   def to_s
     name
   end

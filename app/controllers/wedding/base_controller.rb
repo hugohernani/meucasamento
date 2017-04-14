@@ -14,11 +14,12 @@ module Wedding
 
     def current_event
       @current_event ||= Event.current
-      # set_dependencies
+      set_dependencies
     end
 
-    # def set_dependencies
-    #   @current_event.theme ||= Theme.default
-    # end
+    def set_dependencies
+      @current_event.theme ||= Theme.default
+      @current_event.save if @current_event.changed?
+    end
   end
 end
