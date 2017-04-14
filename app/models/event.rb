@@ -11,10 +11,24 @@ class Event < ApplicationRecord
 
   friendly_id :slug_candidates, use: :slugged
 
+  # Validations
   validates :name, :description, :celebration_date, :event_type, presence: true
 
   enum event_type: { wedding: 0 }
 
+  # Associations
+  has_many :event_participants,         class_name: EventParticipant,
+                                        source: :event,
+                                        dependent: :nullify
+
+  has_many :grooms,                     class_name: Account,
+                                        through: :event_participants,
+                                        source: :participant
+
+  # Scopes
+  scope :weddings, -> { where(event_type: Event.event_types[:wedding]) }
+
+  
   def to_s
     name
   end

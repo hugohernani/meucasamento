@@ -6,4 +6,10 @@ class Account < ApplicationRecord
 
   # Validations
   validates :email, presence: true
+
+  has_many :event_participants,             class_name: EventParticipant,
+                                            source: :participant
+
+  has_many :events,                         class_name: Event,
+                                            through: :event_participants
 end
