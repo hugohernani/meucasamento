@@ -50,7 +50,12 @@ gem 'cancancan'
 # Slug Creation
 gem 'friendly_id', '~> 5.1.0'
 
+# Authentication
 gem 'devise'
+
+# Image upload
+gem "paperclip"
+gem "paperclip-dropbox"
 
 # Admin Interface
 gem 'remotipart', github: 'mshibuya/remotipart'
