@@ -1,6 +1,6 @@
 class EventParticipant < ApplicationRecord
   belongs_to :event, class_name: Event, foreign_key: 'event_id'
-  belongs_to :participant, class_name: Account
+  belongs_to :participant, class_name: Account, foreign_key: 'participant_id'
 
   validates :event_role, presence: true
 

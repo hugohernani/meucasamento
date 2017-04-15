@@ -37,11 +37,22 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'apartment'
+# Roles Related
+gem 'rolify'
+
+# Policies
+gem 'cancancan'
+
+# gem 'apartment'
 # Slug Creation
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'devise'
+
+# Admin Interface
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', github: 'sferik/rails_admin'
+gem 'rails_admin_rollincode', '~> 1.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.1'

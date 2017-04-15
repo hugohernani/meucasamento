@@ -10,6 +10,6 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 Rails.application.config.assets.precompile +=
-  %w( wedding_header.js wedding_footer.js html5shiv.js respond.min.js )
+  %w( wedding_header.js wedding_footer.js html5shiv.js respond.min.js devise_pages.scss all_devise.js )
 
 Rails.application.config.assets.paths << Rails.root.join("app", "assets", "fonts")

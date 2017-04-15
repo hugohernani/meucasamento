@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+a {
+  color:#64a66c !important;
+  cursor: pointer;
+}
+
+a.close-message {
+  font-size: 18px;
+  float: right;
+}

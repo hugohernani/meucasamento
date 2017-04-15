@@ -13,7 +13,7 @@ module Wedding
     end
 
     def current_event
-      @current_event ||= Event.current
+      @current_event ||= Event.find_by(tenant_name: request.subdomain)
       set_dependencies
     end
 
