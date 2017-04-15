@@ -25,6 +25,8 @@ class Event < ApplicationRecord
   has_many :grooms,                     class_name: Account,
                                         through: :event_participants,
                                         source: :event
+  has_one :love_story,                  class_name: LoveStory,
+                                        inverse_of: :event
 
   # Scopes
   scope :weddings, -> { where(event_type: Event.event_types[:wedding]) }
