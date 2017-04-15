@@ -11,6 +11,6 @@ Rails.application.routes.draw do
       resources :events
     end
   end
-  root to: redirect(subdomain: Rails.env.development?? 'hugoeluana' : 'demo')
+  root to: redirect(subdomain: 'hugoeluana')
 
 end
