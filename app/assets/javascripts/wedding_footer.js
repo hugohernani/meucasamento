@@ -1,5 +1,6 @@
 //= require modernizr.custom.97074.js
 //= require jquery-1.10.2.min.js
+//= require top_floating_message.js
 //= require flash_adjustments.js
 //= require bootstrap.min.js
 //= require retina-1.1.0.min.js

@@ -1,0 +1,15 @@
+#top-floating-message {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 10;
+  background:#ffc;
+  padding:5px;
+  border:1px solid #CCCCCC;
+  text-align:center;
+  font-weight:bold;
+  width:100%;
+}
+
+#top-floating-message a:hover{
+  cursor: pointer;
+}
