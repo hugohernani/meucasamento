@@ -15,6 +15,9 @@ class Account < ApplicationRecord
   has_many :events,                         class_name: Event,
                                             through: :event_participants,
                                             source: :participant
+  has_many   :my_witnesses,                 class_name: WeddingWitnessCouple,
+                                            foreign_key: 'fiance_id',
+                                            inverse_of: :fiance
 
   has_one :about_us,                        class_name: FianceAbout,
                                             foreign_key: 'fiance_id',

@@ -210,66 +210,7 @@
         <p><span></span><i class="fa fa-heart"></i><span></span></p>
       </div>
     </div>
-    <div class="row row-margin">
-      <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
-        <h5>Douglas</h5>
-        <h6>Padinho</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
-      </div>
-      <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
-        <a href="person1.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
-          <span class="img-circle">
-            <i class="fa fa-link fa-3x"></i>
-          </span>
-        </a>
-        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
-      </div>
-      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
-        <a href="person2.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
-          <span class="img-circle">
-            <i class="fa fa-link fa-3x"></i>
-          </span>
-        </a>
-      </div>
-      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
-        <h5>Aline</h5>
-        <h6>Madrinha</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
-        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
-      </div>
-    </div>
-    <div class="row row-margin">
-      <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
-        <h5>Geraldo Vitalino</h5>
-        <h6>Pai do Noivo</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
-      </div>
-      <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
-        <a href="person1.html" class="hover-effect">
-          <img src="http://placehold.it/270x270.jpg" class="img-responsive img-circle" alt="" />
-          <span class="img-circle">
-            <i class="fa fa-link fa-3x"></i>
-          </span>
-        </a>
-        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
-      </div>
-      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
-        <a href="person2.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
-          <span class="img-circle">
-            <i class="fa fa-link fa-3x"></i>
-          </span>
-        </a>
-      </div>
-      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
-        <h5>Genivaldo Gomes</h5>
-        <h6>Pai da Noiva</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
-        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
-      </div>
-    </div>
+
     <div class="row">
       <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
         <h5>Lucia Helena</h5>
@@ -296,6 +237,113 @@
       <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
         <h5>Lisandra Gomes</h5>
         <h6>Mãe da Noiva</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+    </div>
+
+    <br>
+    <div class="col-sm-12 heading text-center" data-scroll-reveal>
+      <h2>Testemunhas do Noivo</h2>
+      <p><span></span><i class="fa fa-heart"></i><span></span></p>
+    </div>
+    <% @current_event.groom.my_witnesses.each do |witness_couple| %>
+    <div class="row row-margin">
+      <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
+        <h5><%= witness_couple.male_name %></h5>
+        <h6>Testemunha do Noivo</h6>
+        <p><%= witness_couple.male_description %></p>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
+        <a href="person1.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="person2.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <h5><%= witness_couple.female_name %></h5>
+        <h6>Testemunha do Noivo</h6>
+        <p><%= witness_couple.female_description %></p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+    </div>
+    <% end %>
+
+    <br>
+    <div class="col-sm-12 heading text-center" data-scroll-reveal>
+      <h2>Testemunhas da Noiva</h2>
+      <p><span></span><i class="fa fa-heart"></i><span></span></p>
+    </div>
+    <% @current_event.bride.my_witnesses.each do |witness_couple| %>
+    <div class="row row-margin">
+      <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
+        <h5><%= witness_couple.male_name %></h5>
+        <h6>Testemunha do Noivo</h6>
+        <p><%= witness_couple.male_description %></p>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
+        <a href="person1.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="person2.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <h5><%= witness_couple.female_name %></h5>
+        <h6>Testemunha do Noivo</h6>
+        <p><%= witness_couple.female_description %></p>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+    </div>
+    <% end %>
+
+    <div class="row row-margin">
+      <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
+        <h5>Geraldo Vitalino</h5>
+        <h6>Pai do Noivo</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
+        <a href="person1.html" class="hover-effect">
+          <img src="http://placehold.it/270x270.jpg" class="img-responsive img-circle" alt="" />
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="person2.html" class="hover-effect">
+          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+      </div>
+      <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+        <h5>Genivaldo Gomes</h5>
+        <h6>Pai da Noiva</h6>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
         <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
       </div>

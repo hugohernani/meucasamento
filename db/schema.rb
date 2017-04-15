@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415054107) do
+ActiveRecord::Schema.define(version: 20170415060707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,9 +98,21 @@ ActiveRecord::Schema.define(version: 20170415054107) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "wedding_witness_couples", force: :cascade do |t|
+    t.string   "male_name"
+    t.text     "male_description"
+    t.string   "female_name"
+    t.text     "female_description"
+    t.integer  "fiance_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["fiance_id"], name: "index_wedding_witness_couples_on_fiance_id", using: :btree
+  end
+
   add_foreign_key "event_participants", "accounts", column: "participant_id"
   add_foreign_key "event_participants", "events"
   add_foreign_key "events", "themes"
   add_foreign_key "fiance_abouts", "accounts", column: "fiance_id"
   add_foreign_key "love_stories", "events"
+  add_foreign_key "wedding_witness_couples", "accounts", column: "fiance_id"
 end
