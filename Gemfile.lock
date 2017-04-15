@@ -68,6 +68,7 @@ GEM
     builder (3.2.3)
     byebug (9.0.6)
     cancancan (1.16.0)
+    cocoon (1.2.9)
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -255,6 +256,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   cancancan
+  cocoon
   coffee-rails (~> 4.2)
   devise
   dotenv-rails (~> 2.1.1)

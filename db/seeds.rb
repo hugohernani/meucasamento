@@ -32,6 +32,10 @@ hugo_account.add_role :fiance unless hugo_account.has_role? :fiance
 hugo_account.event_participants.find_or_create_by(
   event: hugo_and_luana_event, event_role: EventParticipant.event_roles[:as_groom])
 
+if hugo_account.about_us.blank?
+  hugo_account.create_about_us(content: "Meu nome é Hugo. Eu sou...")
+end
+
 luana_account = Account.find_or_initialize_by(email: 'lualegresperta@gmail.com')
 luana_account.name = "Nataly Luana Gomes Silva"
 luana_account.social_name = "Luana"
@@ -42,3 +46,7 @@ luana_account.add_role :fiance unless luana_account.has_role? :fiance
 
 luana_account.event_participants.find_or_create_by(
   event: hugo_and_luana_event, event_role: EventParticipant.event_roles[:as_bride])
+
+if luana_account.about_us.blank?
+  luana_account.create_about_us(content: "Meu nome é Nataly. Eu sou...")
+end

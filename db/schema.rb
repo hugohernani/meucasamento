@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170414203103) do
+ActiveRecord::Schema.define(version: 20170415050816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(version: 20170414203103) do
     t.index ["theme_id"], name: "index_events_on_theme_id", using: :btree
   end
 
+  create_table "fiance_abouts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "fiance_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fiance_id"], name: "index_fiance_abouts_on_fiance_id", using: :btree
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.string   "resource_type"
@@ -83,4 +91,5 @@ ActiveRecord::Schema.define(version: 20170414203103) do
   add_foreign_key "event_participants", "accounts", column: "participant_id"
   add_foreign_key "event_participants", "events"
   add_foreign_key "events", "themes"
+  add_foreign_key "fiance_abouts", "accounts", column: "fiance_id"
 end

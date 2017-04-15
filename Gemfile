@@ -40,6 +40,9 @@ gem 'jbuilder', '~> 2.5'
 # Roles Related
 gem 'rolify'
 
+# Nested Fields
+gem 'cocoon'
+
 # Policies
 gem 'cancancan'
 
