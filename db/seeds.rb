@@ -20,20 +20,18 @@ if demo_event.love_story.blank?
   demo_love_story.save
 end
 
-if Rails.env.development?
-  hugo_and_luana_event = Event.find_or_initialize_by(name: 'hugoeluana')
-  hugo_and_luana_event.description = "Casal Perfeito"
-  hugo_and_luana_event.event_type = Event.event_types[:wedding]
-  hugo_and_luana_event.celebration_date = DateTime.new(2017,6, 17, 19, 00)
-  hugo_and_luana_event.save if hugo_and_luana_event.changed?
+hugo_and_luana_event = Event.find_or_initialize_by(name: 'hugoeluana')
+hugo_and_luana_event.description = "Casal Perfeito"
+hugo_and_luana_event.event_type = Event.event_types[:wedding]
+hugo_and_luana_event.celebration_date = DateTime.new(2017,6, 17, 19, 00)
+hugo_and_luana_event.save if hugo_and_luana_event.changed?
 
-  if hugo_and_luana_event.love_story.blank?
-    hugo_and_luana_event_love_story = hugo_and_luana_event.build_love_story
-    hugo_and_luana_event_love_story.we_met = "O dia que nos encontramos foi muito especial..."
-    hugo_and_luana_event_love_story.first_date = "Nosso primeiro encontro ou a primeira vez que saímos juntos foi especial..."
-    hugo_and_luana_event_love_story.engagement = "O noivado foi bem engraçado..."
-    hugo_and_luana_event_love_story.save
-  end
+if hugo_and_luana_event.love_story.blank?
+  hugo_and_luana_event_love_story = hugo_and_luana_event.build_love_story
+  hugo_and_luana_event_love_story.we_met = "O dia que nos encontramos foi muito especial..."
+  hugo_and_luana_event_love_story.first_date = "Nosso primeiro encontro ou a primeira vez que saímos juntos foi especial..."
+  hugo_and_luana_event_love_story.engagement = "O noivado foi bem engraçado..."
+  hugo_and_luana_event_love_story.save
 end
 
 hugo_account = Account.find_or_initialize_by(email: 'hhernanni@gmail.com')
