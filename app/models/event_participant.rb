@@ -9,4 +9,8 @@ class EventParticipant < ApplicationRecord
   def self.groom
     find_by(event_role: EventParticipant.event_roles[:as_groom]).try(:participant)
   end
+
+  def self.bride
+    find_by(event_role: EventParticipant.event_roles[:as_bride]).try(:participant)
+  end
 end

@@ -16,7 +16,7 @@ if Rails.env.development?
   hugo_and_luana_event = Event.find_or_initialize_by(name: 'hugoeluana')
   hugo_and_luana_event.description = "Casal Perfeito"
   hugo_and_luana_event.event_type = Event.event_types[:wedding]
-  hugo_and_luana_event.celebration_date = DateTime.new(2018,12, 30, 19, 00)
+  hugo_and_luana_event.celebration_date = DateTime.new(2017,6, 17, 19, 00)
   hugo_and_luana_event.save if hugo_and_luana_event.changed?
 end
 
@@ -40,5 +40,5 @@ luana_account.save if luana_account.changed?
 
 luana_account.add_role :fiance unless luana_account.has_role? :fiance
 
-hugo_account.event_participants.find_or_create_by(
+luana_account.event_participants.find_or_create_by(
   event: hugo_and_luana_event, event_role: EventParticipant.event_roles[:as_bride])

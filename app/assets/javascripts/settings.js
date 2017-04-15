@@ -44,17 +44,6 @@
 
 		// ====================================================================
 
-		// Countdown
-
-		var weddingDate = new Date();
-		var weddingDate = new Date(weddingDate.getFullYear(), 5, 17);
-		$(".countdown").countdown({
-			until: weddingDate,
-			format: 'ODHMS'
-		});
-
-		// ====================================================================
-
 		// Owl Carousel
 
 		$("#registry .owl-carousel").owlCarousel({

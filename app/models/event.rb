@@ -29,6 +29,8 @@ class Event < ApplicationRecord
   # Scopes
   scope :weddings, -> { where(event_type: Event.event_types[:wedding]) }
 
+  # Delegations
+  delegate :groom, :bride, to: :event_participants
 
   def to_s
     name

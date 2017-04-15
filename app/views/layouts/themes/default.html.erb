@@ -31,5 +31,13 @@
     <%= yield %>
 
     <%= javascript_include_tag 'wedding_footer', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_tag :jcountdown do -%>
+      var weddingDate = new Date('<%= l @current_event.celebration_date, format: :countdown, locale: :en %>');
+      $(".countdown").countdown({
+        until: weddingDate,
+        format: 'ODHMS'
+      });
+    <% end -%>
 	</body>
 </html>

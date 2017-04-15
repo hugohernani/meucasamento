@@ -1,6 +1,7 @@
 module Wedding
   class BaseController < ApplicationController
     layout :load_theme
+    before_action :current_event
 
     private
     def load_theme
