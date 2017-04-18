@@ -29,7 +29,8 @@ class Event < ApplicationRecord
                                         inverse_of: :event
 
   has_many :image_assets,               class_name: Asset,
-                                        through: :event_images
+                                        through: :event_images,
+                                        source: :event
 
   has_one :love_story,                  class_name: LoveStory,
                                         inverse_of: :event
@@ -39,6 +40,13 @@ class Event < ApplicationRecord
 
   # Delegations
   delegate :groom, :bride, to: :event_participants
+
+  # Cocoon Setup
+  accepts_nested_attributes_for :event_participants, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :grooms, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :event_images, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :image_assets, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :love_story, reject_if: :all_blank, allow_destroy: true
 
   def to_s
     name
