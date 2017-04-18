@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416041119) do
+ActiveRecord::Schema.define(version: 20170418010501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,14 @@ ActiveRecord::Schema.define(version: 20170416041119) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.index ["owner_type", "owner_id"], name: "index_assets_on_owner_type_and_owner_id", using: :btree
+  end
+
+  create_table "event_images", force: :cascade do |t|
+    t.integer  "event_id"
+    t.integer  "res_type",   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["event_id"], name: "index_event_images_on_event_id", using: :btree
   end
 
   create_table "event_participants", force: :cascade do |t|
@@ -121,6 +129,7 @@ ActiveRecord::Schema.define(version: 20170416041119) do
     t.index ["fiance_id"], name: "index_wedding_witness_couples_on_fiance_id", using: :btree
   end
 
+  add_foreign_key "event_images", "events"
   add_foreign_key "event_participants", "accounts", column: "participant_id"
   add_foreign_key "event_participants", "events"
   add_foreign_key "events", "themes"

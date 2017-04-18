@@ -32,7 +32,7 @@ class Asset < ApplicationRecord
 
   def dynamic_attachment_url(format)
     @dynamic_style_format = format
-    file.reprocess!(dynamic_style_format_symbol) file.exists?(dynamic_style_format_symbol)
+    file.reprocess!(dynamic_style_format_symbol) unless file.exists?(dynamic_style_format_symbol)
     file.url(dynamic_style_format_symbol)
   end
 
