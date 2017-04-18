@@ -25,6 +25,12 @@ class Event < ApplicationRecord
   has_many :grooms,                     class_name: Account,
                                         through: :event_participants,
                                         source: :event
+  has_many :event_images,               class_name: EventImage,
+                                        inverse_of: :event
+
+  has_many :image_assets,               class_name: Asset,
+                                        through: :event_images
+
   has_one :love_story,                  class_name: LoveStory,
                                         inverse_of: :event
 

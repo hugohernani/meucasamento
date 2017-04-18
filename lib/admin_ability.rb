@@ -10,7 +10,8 @@ class AdminAbility
 
     can :read, :all
 
-    main_models = [Event, EventParticipant, Theme, Account]
+    main_models = [Event, EventParticipant, Theme, Account, AccountRole, Asset, FianceAbout, LoveStory,
+                   Role, WeddingWitnessCouple, Asset, EventImage]
 
     account_roles = account.roles.map(&:name)
     if account_roles.any?
@@ -18,6 +19,12 @@ class AdminAbility
       can :dashboard
       if account_roles.include? "super_admin"
         can :manage, :all
+      elsif account_roles.include? "fiance"
+        cannot :manage, main_models
+        can [:index, :edit], Event, event_participants: { participant_id: account.id }
+        can [:index, :edit, :new, :destroy], WeddingWitnessCouple, fiance_id: account.id
+        can [:index, :edit], FianceAbout, fiance_id: account.id
+        can [:index, :edit], LoveStory, event: { event_participants: { participant_id: account.id } }
       end
     end
   end
