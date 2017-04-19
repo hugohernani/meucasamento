@@ -38,8 +38,7 @@ class Event < ApplicationRecord
 
   has_one :gallery,                     class_name: Gallery,
                                         inverse_of: :event,
-                                        dependent: :destroy,
-                                        required: true
+                                        dependent: :destroy
 
   has_many :image_assets,               class_name: Asset,
                                         through: :event_images,
@@ -53,8 +52,7 @@ class Event < ApplicationRecord
                                         autosave: true
   has_one :fun_facts,                   class_name: FunFacts,
                                         inverse_of: :event,
-                                        dependent: :destroy,
-                                        required: true
+                                        dependent: :destroy
 
   # Validations
   validates :name, :description, :celebration_date, :event_type, presence: true
@@ -94,7 +92,8 @@ class Event < ApplicationRecord
   end
 
   def fun_facts
-    super || build_fun_facts
+    super || build_fun_facts(invited_people_count: 312, involved_people_count: 2,
+      worked_hours: 999, cups_of_coffee_count: 987)
   end
 
   # def self.current

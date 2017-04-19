@@ -5,9 +5,7 @@ class FunFacts < ApplicationRecord
                                         inverse_of: :fun_facts
   has_one :assets,                      class_name: Asset,
                                         as: :owner,
-                                        inverse_of: :owner,
-                                        required: true,
-                                        autosave: true
+                                        inverse_of: :owner
 
   alias_attribute :background_image, :assets
 

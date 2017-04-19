@@ -3,5 +3,5 @@ class Gallery < EventImage
   belongs_to :event, class_name: Event, foreign_key: :event_id, inverse_of: :gallery, required: true
 
   # Validations
-  validates :assets, length: { maximum: 20 }
+  # validates :assets, length: { maximum: 20 }
 end
