@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418151000) do
+ActiveRecord::Schema.define(version: 20170419050702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,18 @@ ActiveRecord::Schema.define(version: 20170418151000) do
     t.index ["fiance_id"], name: "index_fiance_abouts_on_fiance_id", using: :btree
   end
 
+  create_table "fun_facts", force: :cascade do |t|
+    t.integer  "invited_people_count"
+    t.integer  "involved_people_count"
+    t.integer  "worked_hours"
+    t.integer  "cups_of_coffee_count"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.string   "event_type"
+    t.integer  "event_id"
+    t.index ["event_id"], name: "index_fun_facts_on_event_id", using: :btree
+  end
+
   create_table "love_stories", force: :cascade do |t|
     t.text     "we_met"
     t.text     "first_date"
@@ -135,6 +147,7 @@ ActiveRecord::Schema.define(version: 20170418151000) do
   add_foreign_key "event_participants", "events"
   add_foreign_key "events", "themes"
   add_foreign_key "fiance_abouts", "accounts", column: "fiance_id"
+  add_foreign_key "fun_facts", "events"
   add_foreign_key "love_stories", "events"
   add_foreign_key "wedding_witness_couples", "accounts", column: "fiance_id"
 end
