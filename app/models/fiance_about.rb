@@ -10,13 +10,15 @@ class FianceAbout < ApplicationRecord
                                         inverse_of: :owner,
                                         required: true
 
-  alias_attribute :asset, :assets
-
   validates :content, presence: true
 
   accepts_nested_attributes_for :assets, reject_if: :all_blank, allow_destroy: true
 
   def to_s
     content.split.first(5).join(' ') + '...'
+  end
+
+  def asset
+    assets || build_assets
   end
 end

@@ -6,9 +6,7 @@ module TopSliderAdmin
       edit do
         configure :assets do
           help false
-          inline_add do
-            TopSlider.count < 6
-          end
+          inline_add false
           active true
         end
       end

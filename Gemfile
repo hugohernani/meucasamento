@@ -55,7 +55,7 @@ gem 'devise'
 
 # Image upload
 gem "paperclip"
-gem "paperclip-dropbox"
+gem 'paperclip-cloudinary'
 
 # Admin Interface
 gem 'remotipart', github: 'mshibuya/remotipart'

@@ -9,6 +9,13 @@ class LoveStory < ApplicationRecord
 
   accepts_nested_attributes_for :assets, reject_if: :all_blank, allow_destroy: true
 
+  alias_method :old_assets, :assets
+
+  def assets
+    (old_assets.count..2).each{ |i| old_assets.build unless old_assets[i].try(:id?) }
+    old_assets
+  end
+
   def we_met_image
     assets.first
   end

@@ -22,7 +22,7 @@ class Event < ApplicationRecord
 
   has_many :grooms,                     class_name: Account,
                                         through: :event_participants,
-                                        source: :event
+                                        source: :participant
   has_many :event_images,               class_name: EventImage,
                                         source: :event,
                                         inverse_of: :event,
@@ -52,6 +52,7 @@ class Event < ApplicationRecord
                                         autosave: true
   has_one :fun_facts,                   class_name: FunFacts,
                                         inverse_of: :event,
+                                        autosave: true,
                                         dependent: :destroy
 
   # Validations

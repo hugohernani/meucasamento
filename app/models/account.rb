@@ -29,4 +29,8 @@ class Account < ApplicationRecord
   def to_s
     social_name
   end
+
+  def about_us
+    super || build_about_us(content: 'Por favor, altere sua descrição')
+  end
 end

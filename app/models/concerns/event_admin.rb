@@ -13,9 +13,17 @@ module EventAdmin
           help false
           active true
         end
+        configure :gallery do
+          help false
+          active true
+        end
         configure :love_story do
           active true
           help false
+        end
+        configure :fun_facts do
+          help false
+          active true
         end
         # configure :event_images do
         #   label "Images"

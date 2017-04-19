@@ -7,9 +7,16 @@ class Asset < ApplicationRecord
   # add a delete_<asset_name> method:
   attr_accessor :delete_asset
 
-  has_attached_file :attachment,  default_url: lambda { |f| "#{f.instance.create_default_url}" },
-                            dropbox_credentials: Rails.root.join("config/dropbox.yml"),
-                            styles: Proc.new { |f| f.instance.styles }
+  has_attached_file :attachment, default_url: lambda { |f| "#{f.instance.create_default_url}" },
+                            storage: :cloudinary,
+                            styles: Proc.new { |f| f.instance.styles },
+                            cloudinary_credentials: Rails.root.join("config/cloudinary.yml"),
+                            default: {
+                              tags: [ 'MeuCasamento', 'Asset' ],
+                              context: {
+                                caption: lambda { |style_name, attachment| attachment.instance.attachment_file_name }
+                              }
+                            }
 
 
   validates_attachment_presence :attachment
@@ -30,11 +37,26 @@ class Asset < ApplicationRecord
   end
 
   def styles
-    unless @dynamic_style_format.blank?
-      { dynamic_style_format_symbol => @dynamic_style_format }
-    else
-      {}
-    end
+    # if Rails.env.development?
+      {
+        background: '1600x1600#',
+        slider: '1600x900>',
+        medium: '370x370#',
+        small: '270x270#',
+        smaller: '170x170#'
+      }
+    # else
+    #   if @dynamic_style_format.present?
+    #     { dynamic_style_format_symbol => @dynamic_style_format }
+    #   else
+    #     {}
+    #   end
+    # end
+  end
+
+  def create_default_url
+     ActionController::Base.helpers.asset_path(
+      Rails.root.join("public/missing/default/:style.jpg"), :digest => false)
   end
 
   protected
@@ -44,11 +66,5 @@ class Asset < ApplicationRecord
 
   def dynamic_style_format_symbol
     URI.escape(@dynamic_style_format).to_sym
-  end
-
-  private
-  def create_default_url
-     ActionController::Base.helpers.asset_path(
-      Rails.root.join("public/missing/default/:style.png"), :digest => false)
   end
 end
