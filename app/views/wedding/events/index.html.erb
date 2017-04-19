@@ -52,9 +52,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pessoas <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Mais Importantes', "#{index_path}#people" %></li>
-            <li><a href="person1.html">Person Profile Page 1</a></li>
-            <li><a href="person2.html">Person Profile Page 2</a></li>
+            <li><%= link_to 'Mais Importantes', "#people" %></li>
+            <li><%= link_to 'Pais', "#parents" %></li>
+            <li><%= link_to 'Testemunhas', "#witnesses" %></li>
           </ul>
         </li>
         <!-- <li class="dropdown">
@@ -146,34 +146,34 @@
     </div>
     <div class="row">
       <div class="col-sm-4" data-scroll-reveal="enter from the left after 0.25s">
-        <a href="post.html" class="hover-effect">
+        <%= link_to '#', class: 'hover-effect' do %>
           <%= image_tag( attachment_path(@current_event.love_story.we_met_image.attachment, :medium), class: "img-responsive img-circle", alt: 'Como nos encontramos') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
-        </a>
+        <% end %>
         <h6>Nos encontramos</h6>
         <p><%= @current_event.love_story.we_met %></p>
         <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
       </div>
       <div class="col-sm-4" data-scroll-reveal>
-        <a href="post.html" class="hover-effect">
+        <%= link_to '#', class: 'hover-effect' do %>
           <%= image_tag( attachment_path( @current_event.love_story.first_date_image.attachment, :medium), class: "img-responsive img-circle", alt: 'Nosso primeiro encontro') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
-        </a>
+        <% end %>
         <h6>Primeiro encontro</h6>
         <p><%= @current_event.love_story.first_date %></p>
         <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
       </div>
       <div class="col-sm-4" data-scroll-reveal="enter from the right after 0.5s">
-        <a href="post.html" class="hover-effect">
+        <%= link_to '#', class: 'hover-effect' do %>
           <%= image_tag( attachment_path(@current_event.love_story.engagement_image.attachment, :medium), class: "img-responsive img-circle", alt: 'Nosso noivado') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
-        </a>
+        <% end %>
         <h6>Noivado</h6>
         <p><%= @current_event.love_story.engagement %></p>
         <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
@@ -201,7 +201,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div id="parents" class="row">
       <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
         <h5>Lucia Helena</h5>
         <h6>Mãe do Noivo</h6>
@@ -265,7 +265,7 @@
     </div>
 
     <br>
-    <div class="col-sm-12 heading text-center" data-scroll-reveal>
+    <div id="witnesses" class="col-sm-12 heading text-center" data-scroll-reveal>
       <h2>Testemunhas do Noivo</h2>
       <p><span></span><i class="fa fa-heart"></i><span></span></p>
     </div>

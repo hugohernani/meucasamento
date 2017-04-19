@@ -33,4 +33,15 @@ class Account < ApplicationRecord
   def about_us
     super || build_about_us(content: 'Por favor, altere sua descrição')
   end
+
+  alias_method :old_my_witnesses, :my_witnesses
+  def my_witnesses
+    unless old_my_witnesses.any?
+      old_my_witnesses.build(
+        male_name: "Mude meu nome", male_description: "Mude minha descrição",
+        female_name: "Mude meu nome", female_description: "Mude minha descrição")
+    end
+    old_my_witnesses
+  end
+
 end

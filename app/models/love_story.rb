@@ -12,7 +12,7 @@ class LoveStory < ApplicationRecord
   alias_method :old_assets, :assets
 
   def assets
-    (old_assets.count..2).each{ |i| old_assets.build unless old_assets[i].try(:id?) }
+    (old_assets.size..2).each{ |i| old_assets.build unless old_assets[i].try(:id?) }
     old_assets
   end
 
