@@ -9,6 +9,7 @@ class Asset < ApplicationRecord
 
   has_attached_file :attachment, default_url: lambda { |f| "#{f.instance.create_default_url}" },
                             storage: :cloudinary,
+                            path: ':id/:style/:filename',
                             styles: Proc.new { |f| f.instance.styles },
                             cloudinary_credentials: Rails.root.join("config/cloudinary.yml"),
                             default: {
