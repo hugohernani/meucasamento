@@ -4,9 +4,8 @@ module AccountAdmin
   included do
     rails_admin do
       edit do
-        configure :about_us do
-          help false
-        end
+        include_fields :email, :password, :password_confirmation, :name,
+                       :about_us
       end
     end
   end

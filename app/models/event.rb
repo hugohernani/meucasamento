@@ -12,44 +12,70 @@ class Event < ApplicationRecord
 
   friendly_id :slug_candidates, use: :slugged
 
-  # Validations
-  validates :name, :description, :celebration_date, :event_type, presence: true
-
   enum event_type: { wedding: 0 }
 
   # Associations
   belongs_to :theme,                    class_name: Theme
   has_many :event_participants,         class_name: EventParticipant,
-                                        source: :event
+                                        source: :event,
+                                        inverse_of: :event
 
   has_many :grooms,                     class_name: Account,
                                         through: :event_participants,
                                         source: :event
   has_many :event_images,               class_name: EventImage,
-                                        inverse_of: :event
+                                        source: :event,
+                                        inverse_of: :event,
+                                        dependent: :destroy,
+                                        autosave: true
+
+  has_one :top_slider,                  class_name: TopSlider,
+                                        foreign_key: :event_id,
+                                        inverse_of: :event,
+                                        dependent: :destroy,
+                                        required: true,
+                                        autosave: true
 
   has_many :image_assets,               class_name: Asset,
                                         through: :event_images,
-                                        source: :event
+                                        source: :assets,
+                                        inverse_of: :owner
 
   has_one :love_story,                  class_name: LoveStory,
-                                        inverse_of: :event
+                                        inverse_of: :event,
+                                        dependent: :destroy,
+                                        required: true,
+                                        autosave: true
+
+  # Validations
+  validates :name, :description, :celebration_date, :event_type, presence: true
 
   # Scopes
   scope :weddings, -> { where(event_type: Event.event_types[:wedding]) }
 
   # Delegations
   delegate :groom, :bride, to: :event_participants
+  delegate :assets, to: :top_slider, prefix: true
 
   # Cocoon Setup
   accepts_nested_attributes_for :event_participants, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :grooms, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :event_images, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :top_slider, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :image_assets, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :love_story, reject_if: :all_blank, allow_destroy: true
 
   def to_s
     name
+  end
+
+  # Has One Associations Overriding
+  def top_slider
+    super || build_top_slider
+  end
+
+  def love_story
+    super || build_love_story
   end
 
   # def self.current

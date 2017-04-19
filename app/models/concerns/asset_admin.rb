@@ -5,7 +5,9 @@ module AssetAdmin
     rails_admin do
       edit do
         field :owner
-        field :file, :paperclip
+        field :attachment, :paperclip do
+          label "Image"
+        end
       end
     end
   end

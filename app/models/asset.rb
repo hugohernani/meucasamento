@@ -7,21 +7,26 @@ class Asset < ApplicationRecord
   # add a delete_<asset_name> method:
   attr_accessor :delete_asset
 
-  has_attached_file :file,  default_url: lambda { |f| "#{f.instance.create_default_url}" },
+  has_attached_file :attachment,  default_url: lambda { |f| "#{f.instance.create_default_url}" },
                             dropbox_credentials: Rails.root.join("config/dropbox.yml"),
-                            styles: { large: '860x640>' } #Proc.new { |f| f.instance.styles }
+                            styles: Proc.new { |f| f.instance.styles }
 
 
-  validates_attachment_presence :file
-  validates_attachment_content_type :file, content_type: IMAGE_CONTENT_TYPES
-  validates_attachment_file_name :file, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/]
-  validates_attachment_size :file, :less_than => 5.megabytes
+  validates_attachment_presence :attachment
+  validates_attachment_content_type :attachment, content_type: IMAGE_CONTENT_TYPES
+  validates_attachment_file_name :attachment, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  validates_attachment_size :attachment, :less_than => 5.megabytes
 
   before_validation { self.asset.clear if self.delete_asset == '1' }
 
-  protected
-  def dynamic_file_name
-    [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  def to_s
+    attachment_file_name
+  end
+
+  def dynamic_attachment_url(format)
+    @dynamic_style_format = format
+    attachment.reprocess!(dynamic_style_format_symbol) unless attachment.exists?(dynamic_style_format_symbol)
+    attachment.url(dynamic_style_format_symbol)
   end
 
   def styles
@@ -32,14 +37,13 @@ class Asset < ApplicationRecord
     end
   end
 
-  def dynamic_style_format_symbol
-    URI.escape(@dynamic_style_format).to_sym
+  protected
+  def dynamic_file_name
+    [/png\Z/, /jpe?g\Z/, /gif\Z/]
   end
 
-  def dynamic_attachment_url(format)
-    @dynamic_style_format = format
-    file.reprocess!(dynamic_style_format_symbol) unless file.exists?(dynamic_style_format_symbol)
-    file.url(dynamic_style_format_symbol)
+  def dynamic_style_format_symbol
+    URI.escape(@dynamic_style_format).to_sym
   end
 
   private

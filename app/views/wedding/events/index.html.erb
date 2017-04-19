@@ -4,11 +4,13 @@
 
 <div id="slides">
   <div class="slides-container">
-    <%= image_tag(asset_path('engagement/noivado proposal.jpg')) %>
-    <%= image_tag(asset_path('engagement/noivado segurando nataly.jpg')) %>
-    <%= image_tag(asset_path('engagement/noivado 2.jpg')) %>
-    <%= image_tag(asset_path('engagement/noivado 1.jpg')) %>
-    <%= image_tag(asset_path('otherhugoeluana/mil graus.jpg')) %>
+    <% if @current_event.top_slider_assets.any? %>
+      <% @current_event.top_slider_assets.each do |asset| %>
+        <%= image_tag( asset.dynamic_attachment_url("1600x900>")) %>
+      <% end %>
+    <% else %>
+      <img src="http://placehold.it/1600x900.jpg" alt="" />
+    <% end %>
   </div>
   <div class="tint">
     <div class="welcome text-center" data-scroll-reveal="enter from the top after 2s">

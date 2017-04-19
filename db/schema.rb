@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418010501) do
+ActiveRecord::Schema.define(version: 20170418151000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,20 +43,21 @@ ActiveRecord::Schema.define(version: 20170418010501) do
   create_table "assets", force: :cascade do |t|
     t.string   "owner_type"
     t.integer  "owner_id"
-    t.string   "file_id"
-    t.string   "file_filename"
-    t.string   "file_content_type"
-    t.string   "file_size"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "attachment_file_id"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
     t.index ["owner_type", "owner_id"], name: "index_assets_on_owner_type_and_owner_id", using: :btree
   end
 
   create_table "event_images", force: :cascade do |t|
     t.integer  "event_id"
-    t.integer  "res_type",   default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "type"
     t.index ["event_id"], name: "index_event_images_on_event_id", using: :btree
   end
 
