@@ -95,7 +95,7 @@
     <div class="row">
       <div class="col-sm-6" data-scroll-reveal="enter from the left">
         <a href="person1.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/370x370.jpg', class: 'img-responsive img-circle', alt: '' %>
+          <%= image_tag( @current_event.groom.about_us.asset.dynamic_attachment_url("370#370#"), alt: 'Groom Profile Image') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -123,7 +123,7 @@
       </div>
       <div class="col-sm-6" data-scroll-reveal="enter from the right after 0.5s">
         <a href="person2.html" class="hover-effect">
-          <%= image_tag "http://placehold.it/370x370.jpg", class: "img-responsive img-circle", alt: "" %>
+          <%= image_tag( @current_event.bride.about_us.asset.dynamic_attachment_url("370#370#"), class: "img-responsive img-circle", alt: 'Bride Profile Image') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -167,7 +167,7 @@
     <div class="row">
       <div class="col-sm-4" data-scroll-reveal="enter from the left after 0.25s">
         <a href="post.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/370x370.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag( @current_event.love_story.we_met_image.dynamic_attachment_url("370#370#"), class: "img-responsive img-circle", alt: 'Como nos encontramos') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -178,7 +178,7 @@
       </div>
       <div class="col-sm-4" data-scroll-reveal>
         <a href="post.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/370x370.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag( @current_event.love_story.first_date_image.dynamic_attachment_url("370#370#"), class: "img-responsive img-circle", alt: 'Nosso primeiro encontro') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -189,7 +189,7 @@
       </div>
       <div class="col-sm-4" data-scroll-reveal="enter from the right after 0.5s">
         <a href="post.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/370x370.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag( @current_event.love_story.engagement_image.dynamic_attachment_url("370#370#"), class: "img-responsive img-circle", alt: 'Nosso noivado') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -229,7 +229,7 @@
       </div>
       <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
         <a href="person1.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag asset_path 'http://placehold.it/270#270.jpg', class: 'img-responsive img-circle', alt: "" %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -238,7 +238,7 @@
       </div>
       <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
         <a href="person2.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag asset_path 'http://placehold.it/270#270.jpg', class: 'img-responsive img-circle', alt: "" %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -260,7 +260,7 @@
       </div>
       <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
         <a href="person1.html" class="hover-effect">
-          <img src="http://placehold.it/270x270.jpg" class="img-responsive img-circle" alt="" />
+          <img src="http://placehold.it/270#270.jpg" class="img-responsive img-circle" alt="" />
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -269,7 +269,7 @@
       </div>
       <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
         <a href="person2.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag asset_path 'http://placehold.it/270#270.jpg', class: 'img-responsive img-circle', alt: "" %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -297,7 +297,7 @@
       </div>
       <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
         <a href="person1.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag( witness_couple.male_image.dynamic_attachment_url("270#270#"), class: "img-responsive img-circle", alt: "Imagem de #{witness_couple.male_name}") %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -306,7 +306,7 @@
       </div>
       <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
         <a href="person2.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag( witness_couple.female_image.dynamic_attachment_url("270#270#"), class: "img-responsive img-circle", alt: "Imagem de #{witness_couple.female_name}") %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -335,7 +335,7 @@
       </div>
       <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
         <a href="person1.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag( witness_couple.male_image.dynamic_attachment_url("270#270#"), class: "img-responsive img-circle", alt: "Imagem de #{witness_couple.male_name}") %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -344,7 +344,7 @@
       </div>
       <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
         <a href="person2.html" class="hover-effect">
-          <%= image_tag asset_path 'http://placehold.it/270x270.jpg', class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag( witness_couple.female_image.dynamic_attachment_url("270#270#"), class: "img-responsive img-circle", alt: "Imagem de #{witness_couple.female_name}") %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
@@ -366,7 +366,9 @@
 <!-- ========== FUN FACTS START ========== -->
 
 <section id="facts">
-      <div class="parallax" data-velocity="-.4"></div>
+  <div class="parallax" data-velocity="-.4">
+    <%= image_tag( @current_event.fun_facts.background_image.dynamic_attachment_url("1600x1600#")) %>
+  </div>
   <div class="container text-center">
     <div class="row">
       <div class="col-sm-12 heading" data-scroll-reveal>
@@ -377,25 +379,25 @@
     <div class="row">
       <div class="col-sm-3 col-xs-6" data-scroll-reveal="enter from the left">
         <div class="img-circle">
-          <h3 class="timer" data-from="0" data-to="298"></h3>
+          <h3 class="timer" data-from="0" data-to="<%= @current_event.fun_facts.invited_people_count %>"></h3>
           <h6>Quantidade de convidados</h6>
         </div>
       </div>
       <div class="col-sm-3 col-xs-6" data-scroll-reveal="enter from the top after 0.25s">
         <div class="img-circle">
-          <h3 class="timer" data-from="0" data-to="2"></h3>
+          <h3 class="timer" data-from="0" data-to="<%= @current_event.fun_facts.involved_people_count %>"></h3>
           <h6>Pessoas envolvidas</h6>
         </div>
       </div>
       <div class="col-sm-3 col-xs-6" data-scroll-reveal="enter from the bottom after 0.5s">
         <div class="img-circle">
-          <h3 class="timer" data-from="0" data-to="999"></h3>
+          <h3 class="timer" data-from="0" data-to="<%= @current_event.fun_facts.worked_hours %>"></h3>
           <h6>Horas trabalhadas</h6>
         </div>
       </div>
       <div class="col-sm-3 col-xs-6" data-scroll-reveal="enter from the right after 0.75s">
         <div class="img-circle">
-          <h3 class="timer" data-from="0" data-to="987"></h3>
+          <h3 class="timer" data-from="0" data-to="<%= @current_event.fun_facts.cups_of_coffee_count %>"></h3>
           <h6>Xícaras de café</h6>
         </div>
       </div>
@@ -418,7 +420,7 @@
     <div class="row">
       <div class="col-sm-4" data-scroll-reveal="enter from the left after 0.25s">
         <div class="blog-short">
-          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag asset_path('http://placehold.it/370#260.jpg'), class: 'img-responsive img-circle', alt: "" %>
           <h5>Bride Shower</h5>
           <h6>July 1th, 2014</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
@@ -427,7 +429,7 @@
       </div>
       <div class="col-sm-4" data-scroll-reveal>
         <div class="blog-short">
-          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag asset_path('http://placehold.it/370#260.jpg'), class: 'img-responsive img-circle', alt: "" %>
           <h5>Bachelor Party</h5>
           <h6>July 5th, 2014</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
@@ -436,7 +438,7 @@
       </div>
       <div class="col-sm-4" data-scroll-reveal="enter from the right after 0.5s">
         <div class="blog-short">
-          <%= image_tag asset_path('http://placehold.it/370x260.jpg'), class: 'img-responsive img-circle', alt: "" %>
+          <%= image_tag asset_path('http://placehold.it/370#260.jpg'), class: 'img-responsive img-circle', alt: "" %>
           <h5>Bachelorette Party</h5>
           <h6>July 5th, 2014</h6>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sit amet pharetra nunc, non scelerisque ligula. Cras vel justo nulla. Vestibulum a sollicitudin metus, faucibus fermentum leo.</p>
@@ -451,6 +453,8 @@
 
 <!-- ========== GALLERY START ========== -->
 
+<% if @current_event.gallery.assets.any? %>
+
 <section id="gallery">
   <div class="container text-center">
     <div class="row">
@@ -461,106 +465,22 @@
     </div>
     <div class="row" data-scroll-reveal>
       <ul class="gallery">
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
-        <li class="col-xs-4 col-sm-3 col-md-2">
-          <%= link_to image_url("http://placehold.it/800x600.jpg"), class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-            <%= image_tag asset_path 'http://placehold.it/170x170.jpg', class: 'img-rounded img-responsive', alt: "" %>
-            <span class="img-rounded">
-              <i class="fa fa-search fa-3x"></i>
-            </span>
-          <% end %>
-        </li>
+        <% @current_event.gallery.assets.each do |asset| %>
+          <li class="col-xs-4 col-sm-3 col-md-2">
+            <%= link_to asset.attachment.url, class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+              <%= image_tag asset.dynamic_attachment_url('170x170x'), class: 'img-rounded img-responsive', alt: "" %>
+              <span class="img-rounded">
+                <i class="fa fa-search fa-3x"></i>
+              </span>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
 </section>
+
+<% end %>
 
 <!-- ========== GALLERY END ========== -->
 
