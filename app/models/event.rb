@@ -85,8 +85,16 @@ class Event < ApplicationRecord
     super || build_top_slider
   end
 
+  def gallery
+    super || build_gallery
+  end
+
   def love_story
     super || build_love_story
+  end
+
+  def fun_facts
+    super || build_fun_facts
   end
 
   # def self.current
