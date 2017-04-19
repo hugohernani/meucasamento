@@ -65,7 +65,9 @@
             <li><a href="post.html">Blog Single Post</a></li>
           </ul>
         </li> -->
-        <li><%= link_to 'Galeria', '#gallery' %></li>
+        <% if @current_event.gallery.assets.any? %>
+          <li><%= link_to 'Galeria', '#gallery' %></li>
+        <% end %>
         <!-- <li><%= link_to 'RSVP', '#rsvp' %></li> -->
       </ul>
     </div>
@@ -146,34 +148,34 @@
     </div>
     <div class="row">
       <div class="col-sm-4" data-scroll-reveal="enter from the left after 0.25s">
-        <%= link_to '#', class: 'hover-effect' do %>
+        <a href="#" class="hover-effect">
           <%= image_tag( attachment_path(@current_event.love_story.we_met_image.attachment, :medium), class: "img-responsive img-circle", alt: 'Como nos encontramos') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
-        <% end %>
+        </a>
         <h6>Nos encontramos</h6>
         <p><%= @current_event.love_story.we_met %></p>
         <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
       </div>
       <div class="col-sm-4" data-scroll-reveal>
-        <%= link_to '#', class: 'hover-effect' do %>
+        <a href="#" class="hover-effect">
           <%= image_tag( attachment_path( @current_event.love_story.first_date_image.attachment, :medium), class: "img-responsive img-circle", alt: 'Nosso primeiro encontro') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
-        <% end %>
+        </a>
         <h6>Primeiro encontro</h6>
         <p><%= @current_event.love_story.first_date %></p>
         <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
       </div>
       <div class="col-sm-4" data-scroll-reveal="enter from the right after 0.5s">
-        <%= link_to '#', class: 'hover-effect' do %>
+        <a href="#" class="hover-effect">
           <%= image_tag( attachment_path(@current_event.love_story.engagement_image.attachment, :medium), class: "img-responsive img-circle", alt: 'Nosso noivado') %>
           <span class="img-circle">
             <i class="fa fa-link fa-3x"></i>
           </span>
-        <% end %>
+        </a>
         <h6>Noivado</h6>
         <p><%= @current_event.love_story.engagement %></p>
         <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>

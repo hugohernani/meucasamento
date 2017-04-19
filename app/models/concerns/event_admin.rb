@@ -8,6 +8,12 @@ module EventAdmin
         configure :event_participants do
           visible(false)
         end
+        configure :grooms do
+          inline_add do
+            bindings[:object].grooms.count < 2
+          end
+          help false
+        end
         configure :top_slider do
           label "Top Slider"
           help false
