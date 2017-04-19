@@ -11,7 +11,7 @@ class AdminAbility
     can :read, :all
 
     main_models = [Event, EventParticipant, Theme, Account, AccountRole, Asset, FianceAbout, LoveStory,
-                   Role, WeddingWitnessCouple, Asset, EventImage]
+                   Role, WeddingWitnessCouple, Asset, EventImage, TopSlider, Gallery, FunFacts]
 
     account_roles = account.roles.map(&:name)
     if account_roles.any?
