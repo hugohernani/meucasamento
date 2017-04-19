@@ -36,6 +36,11 @@ class Event < ApplicationRecord
                                         required: true,
                                         autosave: true
 
+  has_one :gallery,                     class_name: Gallery,
+                                        inverse_of: :event,
+                                        dependent: :destroy,
+                                        required: true
+
   has_many :image_assets,               class_name: Asset,
                                         through: :event_images,
                                         source: :assets,
@@ -46,6 +51,10 @@ class Event < ApplicationRecord
                                         dependent: :destroy,
                                         required: true,
                                         autosave: true
+  has_one :fun_facts,                   class_name: FunFacts,
+                                        inverse_of: :event,
+                                        dependent: :destroy,
+                                        required: true
 
   # Validations
   validates :name, :description, :celebration_date, :event_type, presence: true
@@ -62,8 +71,10 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :grooms, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :event_images, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :top_slider, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :gallery, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :image_assets, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :love_story, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :fun_facts, reject_if: :all_blank, allow_destroy: true
 
   def to_s
     name
