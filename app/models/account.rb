@@ -19,6 +19,9 @@ class Account < ApplicationRecord
                                             foreign_key: 'fiance_id',
                                             inverse_of: :fiance
 
+  has_one   :my_parents,                    class_name: WeddingParents,
+                                            foreign_key: 'fiance_id',
+                                            inverse_of: :fiance
   has_one :about_us,                        class_name: FianceAbout,
                                             foreign_key: 'fiance_id',
                                             inverse_of: :fiance
@@ -44,4 +47,9 @@ class Account < ApplicationRecord
     old_my_witnesses
   end
 
+  def my_parents
+    super || build_my_parents(
+        father_name: "Nome do pai", father_description: "Descrição do Pai",
+        mother_name: "Nome da mãe", mother_description: "Descrição da Mãe")
+  end
 end
