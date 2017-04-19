@@ -42,7 +42,7 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-    show_in_app
+#    show_in_app
 
     # Charts
     # charts
