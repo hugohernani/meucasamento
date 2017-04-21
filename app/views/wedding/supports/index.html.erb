@@ -1,0 +1,208 @@
+<%= render 'wedding/shared/navigation' %>
+
+<div id="wedding_support">
+	<div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Como nos presentear</h2>
+        Saiba como fazer parte da vida dos noivos!
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row context-block">
+      <div class="container-fluid text-center">
+        <div class="col-sm-6" data-scroll-reveal="enter from the left">
+          <a href="person1.html" class="hover-effect">
+            <%= image_tag( attachment_path(@current_event.groom.about_us.asset.attachment, :medium), class: "img-responsive img-rounded", alt: 'Groom Profile Image') %>
+            <span class="img-rounded">
+              <i class="fa fa-heart fa-4x"></i>
+            </span>
+          </a>
+          <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+        </div>
+        <div class="col-sm-6 text-center" data-scroll-reveal="enter from the right">
+          <div class="bg-gray primary">
+            <h2>Olá pessoal!</h2>
+            <br>
+            <p><i class="fa fa-gift"></i> <em>Que tal nos ajudar na construção de nossa vida a dois?</em></p>
+            <p><em>Acontece que já casamos e compramos alguns itens para convivência. Além disso, estamos morando em Aracaju cuja voltagem é de 110v... .. ...</em></p>
+            <p></em>Devido a isso, pensamos nessas três opções para que você nos presenteie.</em> <i class="fa fa-gift"></i></p>
+            <small><cite title="Source Title">Hugo e Luana</cite></small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <span class="text-center white-span"></span>
+
+		<div id="support-options" class="row context-block" >
+      <div class="col-sm-4 wow fadeInDown text-center" data-scroll-reveal="enter from the left">
+        <div class="hover-effect">
+          <%= image_tag asset_path('deposito.jpg'), class: 'img-circle img-responsive', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-money fa-3x"></i>
+          </span>
+        </div>
+        <h3>Depósito</h3>
+        <p class="lead">Veja os dados bancários dos noivos e presentei-os através de depósito!</p>
+        <a link="#deposito" class="btn btn-primary">Ver detalhes</a>
+			</div><!-- /.col-lg-4 -->
+
+			<div class="col-sm-4 wow fadeInDown text-center" data-scroll-reveal>
+        <div class="hover-effect">
+          <%= image_tag asset_path('pagseguro.png'), class: 'img-circle img-responsive', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-credit-card fa-3x"></i>
+          </span>
+        </div>
+        <h3>Doação online</h3>
+        <p class="lead">Que tal fazer uma doação usando cartão de crédito, débito ou até mesmo boleto bancário?</p>
+        <p><a link="#doacao" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
+			</div><!-- /.col-lg-4 -->
+
+			<div class="col-sm-4 wow fadeInDown text-center" data-scroll-reveal="enter from the right">
+        <div class="hover-effect">
+          <%= image_tag asset_path('presentes.jpg'), class: 'img-circle img-responsive', alt: "" %>
+          <span class="img-circle">
+            <i class="fa fa-gift fa-3x"></i>
+          </span>
+        </div>
+        <h3>Lista de presentes</h3>
+        <p class="lead">Veja aqui quais lojas nós colomos nossas listas de presentes</p>
+        <p><a link="#lista_de_presentes" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
+			</div><!-- /.col-lg-4 -->
+
+		</div><!-- /.row -->
+	</div>
+</div>
+
+<section id="deposito-container">
+  <a name="deposito"></a>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Depósito</h2>
+        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+
+	 	<div class="row context-block">
+	 		<div class="col-sm-6" data-scroll-reveal="enter from the left">
+        <%= image_tag asset_path('deposito-envelopes.jpg'), class: 'img-responsive', alt: "" %>
+	 		</div>
+
+	 		<div class="col-sm-6" data-scroll-reveal="enter from the right">
+        <div class="text-center">
+		 		  <h4>Dados Bancários</h4>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <p>
+              Hugo Hernani Ferreira da Silva <br />
+              Banco do Brasil <br />
+              Agência: 0542-8 <br />
+              Conta Corrente: 54524-4 <br />
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              Nataly Luana Gomes Silva <br />
+              Caixa Econômica Federal <br />
+              Agência: XXXXX-X <br />
+              Conta Corrente: XXXXXXXX-X <br />
+            </p>
+          </div>
+        </div>
+	 		</div>
+	 	</div><! --/row -->
+	 </div><! --/container -->
+</section>
+
+<section id="doacao-container">
+  <a name="doacao"></a>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Doação</h2>
+        Você pode doar através do <strong>PagSeguro</strong>.
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+
+	 	<div class="row context-block">
+	 		<div class="col-sm-6" data-scroll-reveal="enter from the left">
+        <%= image_tag attachment_path(nil, :medium), class: 'img-responsive', alt: "" %>
+	 		</div>
+
+	 		<div class="col-sm-6" data-scroll-reveal="enter from the right">
+        <div class="text-center">
+		 		  <h4>Opções</h4>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="btn btn-primary">R$ 50</div>
+          </div>
+          <div class="col-sm-3">
+            <div class="btn btn-primary">R$ 100</div>
+          </div>
+          <div class="col-sm-3">
+            <div class="btn btn-primary">R$ 200</div>
+          </div>
+          <div class="col-sm-3">
+            <div class="btn btn-primary">R$ 300</div>
+          </div>
+        </div>
+	 		</div>
+	 	</div><! --/row -->
+	 </div><! --/container -->
+</section>
+
+<section id="lista-de-presentes-container">
+  <a name="lista-de-presentes"></a>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Lista de presentes</h2>
+        Veja onde colocamos nossa <strong>lista de presentes</strong>.
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+
+	 	<div class="row context-block">
+	 		<div class="col-sm-6" data-scroll-reveal="enter from the left">
+        <div class="text-center">
+          <h4>Lojas</h4>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= image_tag asset_path('lojas americanas'), class: 'img-responsive', alt: "" %>
+          </div>
+          <div class="col-sm-6">
+            <%= image_tag asset_path('lojas americanas'), class: 'img-responsive', alt: "" %>
+          </div>
+        </div>
+	 		</div>
+
+	 		<div class="col-sm-6" data-scroll-reveal="enter from the right">
+        <div class="text-center">
+		 		  <h4>Lista</h4>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <%= image_tag asset_path('gift-smaller.png'), class: 'img-responsive img-circle', alt: '' %>
+            <br>
+            <div class="btn">R$ 50</div>
+          </div>
+          <div class="col-sm-6">
+            <%= image_tag asset_path('gift-smaller.png'), class: 'img-responsive img-circle', alt: '' %>
+            <br>
+            <div class="btn">R$ 50</div>
+          </div>
+        </div>
+	 		</div>
+	 	</div><! --/row -->
+	 </div><! --/container -->
+</section>
+
+<%= render 'layouts/footer' %>
