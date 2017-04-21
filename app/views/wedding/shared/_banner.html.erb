@@ -1,0 +1,17 @@
+<div id="slides">
+  <div class="slides-container">
+    <% @current_event.top_slider_assets.each do |asset| %>
+      <%= image_tag(attachment_path(asset.attachment, :slider)) %>
+    <% end %>
+  </div>
+  <div class="tint">
+    <div class="welcome text-center" data-scroll-reveal="enter from the top after 2s">
+      <h1><%= @current_event.groom.social_name + " & " + @current_event.bride.social_name %></h1>
+      <p>vão se casar!</p>
+      <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      <p><%= l @current_event.celebration_date.to_date, format: :short %></p>
+    </div>
+  </div>
+  <br />
+  <div class="countdown" data-scroll-reveal="enter from the bottom after 2.5s"></div>
+</div>

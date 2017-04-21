@@ -1,0 +1,74 @@
+<div id="witnesses" class="col-sm-12 heading text-center" data-scroll-reveal>
+  <h2>Testemunhas do Noivo</h2>
+  <p><span></span><i class="fa fa-heart"></i><span></span></p>
+</div>
+<% @current_event.groom.my_witnesses.each do |witness_couple| %>
+<div class="row row-margin">
+  <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
+    <h5><%= witness_couple.male_name %></h5>
+    <h6>Testemunha do Noivo</h6>
+    <p><%= witness_couple.male_description %></p>
+  </div>
+  <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
+    <a href="person1.html" class="hover-effect">
+      <%= image_tag( attachment_path(witness_couple.male_image.attachment, :small), class: "img-responsive img-circle", alt: "Imagem de #{witness_couple.male_name}") %>
+      <span class="img-circle">
+        <i class="fa fa-link fa-3x"></i>
+      </span>
+    </a>
+    <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+  </div>
+  <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+    <a href="person2.html" class="hover-effect">
+      <%= image_tag( attachment_path(witness_couple.female_image.attachment, :small), class: "img-responsive img-circle", alt: "Imagem de #{witness_couple.female_name}") %>
+      <span class="img-circle">
+        <i class="fa fa-link fa-3x"></i>
+      </span>
+    </a>
+  </div>
+  <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+    <h5><%= witness_couple.female_name %></h5>
+    <h6>Testemunha do Noivo</h6>
+    <p><%= witness_couple.female_description %></p>
+    <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+  </div>
+</div>
+<% end %>
+
+<br>
+<div class="col-sm-12 heading text-center" data-scroll-reveal>
+  <h2>Testemunhas da Noiva</h2>
+  <p><span></span><i class="fa fa-heart"></i><span></span></p>
+</div>
+<% @current_event.bride.my_witnesses.each do |witness_couple| %>
+<div class="row row-margin">
+  <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
+    <h5><%= witness_couple.male_name %></h5>
+    <h6>Testemunha do Noivo</h6>
+    <p><%= witness_couple.male_description %></p>
+  </div>
+  <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
+    <a href="person1.html" class="hover-effect">
+      <%= image_tag( attachment_path(witness_couple.male_image.attachment, :small), class: "img-responsive img-circle", alt: "Imagem de #{witness_couple.male_name}") %>
+      <span class="img-circle">
+        <i class="fa fa-link fa-3x"></i>
+      </span>
+    </a>
+    <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+  </div>
+  <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+    <a href="person2.html" class="hover-effect">
+      <%= image_tag( attachment_path(witness_couple.female_image.attachment, :small), class: "img-responsive img-circle", alt: "Imagem de #{witness_couple.female_name}") %>
+      <span class="img-circle">
+        <i class="fa fa-link fa-3x"></i>
+      </span>
+    </a>
+  </div>
+  <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
+    <h5><%= witness_couple.female_name %></h5>
+    <h6>Testemunha do Noivo</h6>
+    <p><%= witness_couple.female_description %></p>
+    <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+  </div>
+</div>
+<% end %>

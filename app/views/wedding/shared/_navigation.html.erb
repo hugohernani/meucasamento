@@ -1,0 +1,46 @@
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to root_path, class: 'navbar-brand' do %>
+        <%= image_tag asset_path 'logo', alt:"Meu Casamento", class:"img-responsive" %>
+      <% end %>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Home', root_path %></li>
+        <li>
+          <%= link_to 'Sobre nós', '#about' %>
+        </li>
+        <li>
+          <%= link_to 'Lista de Presentes', wedding_supports_path %>
+        </li>
+        <li><%= link_to 'Nossa história', '#story' %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pessoas <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Mais Importantes', "#people" %></li>
+            <li><%= link_to 'Pais', "#parents" %></li>
+            <li><%= link_to 'Testemunhas', "#witnesses" %></li>
+          </ul>
+        </li>
+        <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Resumo Blog', "#{index_path}#blog" %></li>
+            <li><a href="blog.html">Blog Post List</a></li>
+            <li><a href="post.html">Blog Single Post</a></li>
+          </ul>
+        </li> -->
+        <% if @current_event.gallery.assets.any? %>
+          <li><%= link_to 'Galeria', '#gallery' %></li>
+        <% end %>
+        <!-- <li><%= link_to 'RSVP', '#rsvp' %></li> -->
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<section id="about">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Sobre nós</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6" data-scroll-reveal="enter from the left">
+        <a href="person1.html" class="hover-effect">
+          <%= image_tag( attachment_path(@current_event.groom.about_us.asset.attachment, :medium), alt: 'Groom Profile Image') %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <h5><%= @current_event.groom.social_name %></h5>
+        <p><%= @current_event.groom.about_us.content %></p>
+        <ul class="social-icons">
+          <li>
+            <%= link_to 'https://www.facebook.com/Hernnani', target: '_blank' do %>
+              <i class="fa fa-facebook"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'https://twitter.com/hhernanni', target: '_blank' do %>
+              <i class="fa fa-twitter"></i>
+            <% end %>
+          </li>
+        </ul>
+        <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
+      </div>
+      <div class="col-sm-6" data-scroll-reveal="enter from the right after 0.5s">
+        <a href="person2.html" class="hover-effect">
+          <%= image_tag( attachment_path(@current_event.bride.about_us.asset.attachment, :medium), class: "img-responsive img-circle", alt: 'Bride Profile Image') %>
+          <span class="img-circle">
+            <i class="fa fa-link fa-3x"></i>
+          </span>
+        </a>
+        <h5><%= @current_event.bride.social_name %></h5>
+        <p><%= @current_event.bride.about_us.content %></p>
+        <ul class="social-icons">
+          <li>
+            <%= link_to 'https://www.facebook.com/natalylua', target: '_blank' do %>
+              <i class="fa fa-facebook"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to 'https://twitter.com/natalyluana', target: '_blank' do %>
+              <i class="fa fa-twitter"></i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
