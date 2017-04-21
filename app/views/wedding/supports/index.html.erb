@@ -24,10 +24,17 @@
           <div class="bg-gray primary">
             <h2>Olá pessoal!</h2>
             <br>
-            <p><i class="fa fa-gift"></i> <em>Que tal nos ajudar na construção de nossa vida a dois?</em></p>
-            <p><em>Acontece que já casamos e compramos alguns itens para convivência. Além disso, estamos morando em Aracaju cuja voltagem é de 110v... .. ...</em></p>
-            <p></em>Devido a isso, pensamos nessas três opções para que você nos presenteie.</em> <i class="fa fa-gift"></i></p>
-            <small><cite title="Source Title">Hugo e Luana</cite></small>
+            <blockquote>
+              <i class="fa fa-gift"></i>
+              <p>
+                <em><%= @current_event.wedding_support.message %></em>
+              </p>
+              <i class="fa fa-gift"></i>
+            </blockquote>
+            <br>
+            <small>
+              <cite title="Source Title" class="text-right"><%= @current_event.groom.social_name %> e <%= @current_event.bride.social_name %></cite>
+            </small>
           </div>
         </div>
       </div>

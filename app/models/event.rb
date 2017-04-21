@@ -16,6 +16,7 @@ class Event < ApplicationRecord
 
   # Associations
   belongs_to :theme,                    class_name: Theme
+  has_one :wedding_support,             class_name: WeddingSupport
   has_many :event_participants,         class_name: EventParticipant,
                                         source: :event,
                                         inverse_of: :event
@@ -66,6 +67,7 @@ class Event < ApplicationRecord
   delegate :assets, to: :top_slider, prefix: true
 
   # Cocoon Setup
+  accepts_nested_attributes_for :wedding_support, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :event_participants, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :grooms, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :event_images, reject_if: :all_blank, allow_destroy: true
@@ -90,6 +92,10 @@ class Event < ApplicationRecord
 
   def love_story
     super || build_love_story
+  end
+
+  def wedding_support
+    super || build_wedding_support(message: 'Altere essa mensagem explicando qual a melhor forma de constribuirem para vida de vocês.')
   end
 
   def fun_facts

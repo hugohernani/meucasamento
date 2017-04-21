@@ -14,6 +14,11 @@ module EventAdmin
           end
           help false
         end
+        configure :wedding_support do
+          label "Configurações - Presentes"
+          help false
+          active true
+        end
         configure :top_slider do
           label "Top Slider"
           help false
