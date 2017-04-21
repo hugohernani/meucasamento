@@ -3,6 +3,7 @@
 # in models/admin_ability.rb
 class AdminAbility
   include CanCan::Ability
+
   def initialize(account)
     alias_action :new, :destroy, to: :create_destroy
     alias_action :index, :export, :history, :new, :destroy, to: :admin_actions
@@ -10,8 +11,7 @@ class AdminAbility
 
     can :read, :all
 
-    main_models = [Event, EventParticipant, Theme, Account, AccountRole, Asset, FianceAbout, LoveStory,
-                   Role, WeddingWitnessCouple, Asset, EventImage, TopSlider, Gallery, FunFacts]
+    main_models = ApplicationRecord.descendants.map(&:name)
 
     account_roles = account.roles.map(&:name)
     if account_roles.any?
@@ -27,5 +27,9 @@ class AdminAbility
         can [:index, :edit], LoveStory, event: { event_participants: { participant_id: account.id } }
       end
     end
+  end
+
+  def current_event
+    @current_event ||= ENV['tenant_name'].present?? Event.find_by(tenant_name: ENV['tenant_name']) : nil
   end
 end
