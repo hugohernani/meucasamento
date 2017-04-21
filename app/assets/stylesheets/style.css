@@ -667,3 +667,13 @@ footer {
 	}
 
 }
+
+.context-block{
+  background-color: #f8f8f8;
+  padding: 20px 0;
+}
+
+.white-span{
+  background-color: white;
+  padding: 0px 200px;
+}
