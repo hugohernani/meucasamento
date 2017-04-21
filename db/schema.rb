@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421152412) do
+ActiveRecord::Schema.define(version: 20170421160028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,18 @@ ActiveRecord::Schema.define(version: 20170421152412) do
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.index ["owner_type", "owner_id"], name: "index_assets_on_owner_type_and_owner_id", using: :btree
+  end
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.integer  "wedding_support_id"
+    t.string   "name"
+    t.string   "bank"
+    t.string   "agency"
+    t.string   "account"
+    t.string   "operation"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["wedding_support_id"], name: "index_bank_accounts_on_wedding_support_id", using: :btree
   end
 
   create_table "event_images", force: :cascade do |t|
@@ -160,6 +172,7 @@ ActiveRecord::Schema.define(version: 20170421152412) do
     t.index ["fiance_id"], name: "index_wedding_witness_couples_on_fiance_id", using: :btree
   end
 
+  add_foreign_key "bank_accounts", "wedding_supports"
   add_foreign_key "event_images", "events"
   add_foreign_key "event_participants", "accounts", column: "participant_id"
   add_foreign_key "event_participants", "events"

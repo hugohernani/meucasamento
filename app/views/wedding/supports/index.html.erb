@@ -104,22 +104,19 @@
 		 		  <h4>Dados Bancários</h4>
         </div>
         <div class="row">
-          <div class="col-sm-6">
-            <p>
-              Hugo Hernani Ferreira da Silva <br />
-              Banco do Brasil <br />
-              Agência: 0542-8 <br />
-              Conta Corrente: 54524-4 <br />
-            </p>
-          </div>
-          <div class="col-sm-6">
-            <p>
-              Nataly Luana Gomes Silva <br />
-              Caixa Econômica Federal <br />
-              Agência: XXXXX-X <br />
-              Conta Corrente: XXXXXXXX-X <br />
-            </p>
-          </div>
+          <% @current_event.wedding_support.bank_accounts.each do |bank_account| %>
+            <div class="col-sm-6">
+              <p>
+                <%= bank_account.name %> <br />
+                <%= bank_account.bank %> <br />
+                Agência: <%= bank_account.agency %> <br />
+                <% if bank_account.operation.present? %>
+                  Operação: <%= bank_account.operation %> <br />
+                <% end %>
+                Conta Corrente: <%= bank_account.account %> <br />
+              </p>
+            </div>
+          <% end %>
         </div>
 	 		</div>
 	 	</div><! --/row -->
