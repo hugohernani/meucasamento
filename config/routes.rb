@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     scope module: :wedding do
       resources :events
     end
+    scope path: :casamento, module: :wedding, as: :wedding do
+      resources :supports, only: [:index], path: 'presente'
+    end
   end
   root to: redirect(subdomain: 'hugoeluana')
 
