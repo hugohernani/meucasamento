@@ -53,4 +53,6 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   config.action_mailer.default_url_options = { host: 'meucasamento.dev', port: 3002 }
+
+  PAPERCLIP_STORAGE_OPTIONS = {}
 end

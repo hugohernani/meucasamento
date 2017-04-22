@@ -506,6 +506,35 @@ footer {
 	padding: 30px 0;
 }
 
+
+/* Other Customization */
+
+.context-block{
+  background-color: #f8f8f8;
+  padding: 20px 0;
+}
+
+.white-span{
+  background-color: white;
+  padding: 0px 200px;
+}
+
+.stores .store{
+  border: 1px solid white;
+}
+
+.store .store:hover{
+  cursor: pointer;
+}
+
+.store .active{
+  background-color: white;
+}
+
+.clear {
+  clear: both;
+}
+
 /* RESPONSIVE STYLES
 =========================================================================================*/
 
@@ -666,14 +695,4 @@ footer {
 		width: 100%;
 	}
 
-}
-
-.context-block{
-  background-color: #f8f8f8;
-  padding: 20px 0;
-}
-
-.white-span{
-  background-color: white;
-  padding: 0px 200px;
 }

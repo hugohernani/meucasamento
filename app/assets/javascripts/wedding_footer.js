@@ -12,6 +12,7 @@
 //= require jquery.countdown-pt-BR.js
 //= require jquery.scrolly.js
 //= require jquery.countTo.js
+//= require jquery_ujs
 //= require owl.carousel.js
 //= require jquery.fancybox.js
 //= require magic.js

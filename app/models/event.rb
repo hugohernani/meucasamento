@@ -16,10 +16,19 @@ class Event < ApplicationRecord
 
   # Associations
   belongs_to :theme,                    class_name: Theme
-  has_one :wedding_support,             class_name: WeddingSupport
+  has_one :wedding_support,             class_name: WeddingSupport,
+                                        inverse_of: :event,
+                                        dependent: :destroy
+  has_one :wedding_list,                class_name: WeddingList,
+                                        through: :wedding_support
+  has_many :stores,                     class_name: Store,
+                                        through: :wedding_list
+  has_many :products,                   class_name: Product,
+                                        through: :stores
   has_many :event_participants,         class_name: EventParticipant,
                                         source: :event,
-                                        inverse_of: :event
+                                        inverse_of: :event,
+                                        dependent: :destroy
 
   has_many :grooms,                     class_name: Account,
                                         through: :event_participants,
@@ -95,7 +104,7 @@ class Event < ApplicationRecord
   end
 
   def wedding_support
-    super || build_wedding_support(message: 'Altere essa mensagem explicando qual a melhor forma de constribuirem para vida de vocês.')
+    super || create_wedding_support(message: 'Altere essa mensagem explicando qual a melhor forma de constribuirem para vida de vocês.')
   end
 
   def fun_facts

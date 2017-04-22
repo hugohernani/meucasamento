@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421160028) do
+ActiveRecord::Schema.define(version: 20170421165656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,6 +125,15 @@ ActiveRecord::Schema.define(version: 20170421160028) do
     t.index ["event_id"], name: "index_love_stories_on_event_id", using: :btree
   end
 
+  create_table "products", force: :cascade do |t|
+    t.integer  "store_id"
+    t.string   "name"
+    t.decimal  "price",      precision: 10, scale: 2
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["store_id"], name: "index_products_on_store_id", using: :btree
+  end
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.string   "resource_type"
@@ -135,11 +144,28 @@ ActiveRecord::Schema.define(version: 20170421160028) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
+  create_table "stores", force: :cascade do |t|
+    t.integer  "wedding_list_id"
+    t.string   "name"
+    t.text     "address"
+    t.string   "phone_number"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["wedding_list_id"], name: "index_stores_on_wedding_list_id", using: :btree
+  end
+
   create_table "themes", force: :cascade do |t|
     t.string   "name"
     t.string   "layout_name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "wedding_lists", force: :cascade do |t|
+    t.integer  "wedding_support_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["wedding_support_id"], name: "index_wedding_lists_on_wedding_support_id", using: :btree
   end
 
   create_table "wedding_parents", force: :cascade do |t|
@@ -180,6 +206,9 @@ ActiveRecord::Schema.define(version: 20170421160028) do
   add_foreign_key "fiance_abouts", "accounts", column: "fiance_id"
   add_foreign_key "fun_facts", "events"
   add_foreign_key "love_stories", "events"
+  add_foreign_key "products", "stores"
+  add_foreign_key "stores", "wedding_lists"
+  add_foreign_key "wedding_lists", "wedding_supports"
   add_foreign_key "wedding_parents", "accounts", column: "fiance_id"
   add_foreign_key "wedding_supports", "events"
   add_foreign_key "wedding_witness_couples", "accounts", column: "fiance_id"

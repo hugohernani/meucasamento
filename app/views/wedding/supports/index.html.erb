@@ -162,51 +162,22 @@
 	 </div><! --/container -->
 </section>
 
-<section id="lista-de-presentes-container">
-  <a name="lista-de-presentes"></a>
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-sm-12 heading" data-scroll-reveal>
-        <h2>Lista de presentes</h2>
-        Veja onde colocamos nossa <strong>lista de presentes</strong>.
-        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+<% if @current_event.wedding_support.wedding_list.present? %>
+  <section id="lista-de-presentes-container">
+    <a name="lista-de-presentes"></a>
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-sm-12 heading" data-scroll-reveal>
+          <h2>Lista de presentes</h2>
+          Veja onde colocamos nossa <strong>lista de presentes</strong>.
+          <p><span></span><i class="fa fa-heart"></i><span></span></p>
+        </div>
       </div>
-    </div>
 
-	 	<div class="row context-block">
-	 		<div class="col-sm-6" data-scroll-reveal="enter from the left">
-        <div class="text-center">
-          <h4>Lojas</h4>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= image_tag asset_path('lojas americanas'), class: 'img-responsive', alt: "" %>
-          </div>
-          <div class="col-sm-6">
-            <%= image_tag asset_path('lojas americanas'), class: 'img-responsive', alt: "" %>
-          </div>
-        </div>
-	 		</div>
-
-	 		<div class="col-sm-6" data-scroll-reveal="enter from the right">
-        <div class="text-center">
-		 		  <h4>Lista</h4>
-        </div>
-        <div class="row">
-          <div class="col-sm-6">
-            <%= image_tag asset_path('gift-smaller.png'), class: 'img-responsive img-circle', alt: '' %>
-            <br>
-            <div class="btn">R$ 50</div>
-          </div>
-          <div class="col-sm-6">
-            <%= image_tag asset_path('gift-smaller.png'), class: 'img-responsive img-circle', alt: '' %>
-            <br>
-            <div class="btn">R$ 50</div>
-          </div>
-        </div>
-	 		</div>
-	 	</div><! --/row -->
-	 </div><! --/container -->
-</section>
+      <div id="stores-container">
+        <%= render 'wedding/supports/store/stores_listing' %>
+      </div>
+  </section>
+<% end %>
 
 <%= render 'layouts/footer' %>

@@ -11,7 +11,11 @@ Rails.application.routes.draw do
       resources :events
     end
     scope path: :casamento, module: :wedding, as: :wedding do
-      resources :supports, only: [:index], path: 'presente'
+      resources :supports, only: [:index], path: 'presente' do
+        collection do
+          post 'show_products/:store_id', to: 'supports#show_products', as: :show_products
+        end
+      end
     end
   end
   root to: redirect(subdomain: 'hugoeluana')

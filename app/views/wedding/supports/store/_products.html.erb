@@ -1,0 +1,16 @@
+<% if current_store.products.blank? %>
+  <h4>Essa loja não contém produtos.</h4>
+<% else %>
+  <div class="text-center">
+    <h4>Lista na <%= current_store.name %></h4>
+  </div>
+  <div class="row">
+    <% current_store.products.each do |product| %>
+      <div class="col-sm-4">
+        <%= image_tag attachment_path(product.attachment, :smaller), class: 'img-responsive img-circle', alt: 'product.name' %>
+        <br>
+        <div class="btn"><%= number_to_currency(product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

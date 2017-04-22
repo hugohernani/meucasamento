@@ -4,7 +4,7 @@ module EventAdmin
   included do
     rails_admin do
       edit do
-        exclude_fields :event_images, :image_assets
+        exclude_fields :event_images, :image_assets, :wedding_list, :stores, :products
         configure :event_participants do
           visible(false)
         end

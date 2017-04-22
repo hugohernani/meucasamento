@@ -83,4 +83,15 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  PAPERCLIP_STORAGE_OPTIONS = {
+    storage: :cloudinary,
+    cloudinary_credentials: Rails.root.join("config/cloudinary.yml"),
+    default: {
+      tags: [ 'MeuCasamento', 'Asset' ],
+      context: {
+        caption: lambda { |style_name, attachment| attachment.instance.attachment_file_name }
+      }
+    }
+  }
 end
