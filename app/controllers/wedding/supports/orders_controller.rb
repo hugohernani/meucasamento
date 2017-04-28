@@ -12,7 +12,7 @@ module Wedding
       def donation_params
         params.require(:donation_form).permit(:card_token, :sender_hash, :session_id, :name, :email, :cpf,
                       :phone_code, :phone_number, :birthday, :card_name, :card_number,
-                      :card_month, :card_year, :card_cvv, :card_options, :donation_id)
+                      :card_month, :card_year, :card_cvv, :card_options, :donation_id, :card_options)
       end
 
       # Enviar nosso pagamento para o Pagseguro
@@ -21,8 +21,9 @@ module Wedding
         @product = Donation.find(donation_params[:donation_id])
 
         payment = PagSeguro::CreditCardTransactionRequest.new
-        payment.notification_url = ""
-        payment.payment_mode = "gateway"
+        payment.notification_url = notifications_url
+        # payment.notification_url = ""
+        payment.payment_mode = "default"
 
         # Aqui vão os itens que serão cobrados na transação, caso você tenha multiplos itens
         # em um carrinho altere aqui para incluir sua lista de itens
@@ -39,8 +40,30 @@ module Wedding
         payment.sender = {
           hash: donation_params[:sender_hash],
           name: donation_params[:name],
-          email: donation_params[:email]
+          email: donation_params[:email],
+          cpf: donation_params[:cpf],
+          document: { type: "CPF", value: donation_params[:cpf] },
+          phone: {
+            area_code: donation_params[:phone_code],
+            number: donation_params[:phone_number]
+          }
         }
+
+        shipping_address = {
+          type_name: "sedex",
+          address: {
+            street: "Rua José Calumby",
+            number: "1380",
+            complement: "Cond Ilhas de Santo Aleixo B 402",
+            city: "Aracaju",
+            state: "SE",
+            district: "Pereira Lopo",
+            postal_code: "49030020"
+          }
+        }
+
+        payment.shipping = shipping_address
+        payment.billing_address = shipping_address[:address]
 
         payment.credit_card_token = donation_params[:card_token]
         payment.holder = {
@@ -58,8 +81,10 @@ module Wedding
 
         payment.installment = {
          value: @product.price,
-         quantity: 1
+         quantity: donation_params[:card_options].to_i
         }
+
+        # payment.extra_params << { shippingAddressRequired: 'false' }
 
         puts "=> REQUEST"
         puts PagSeguro::TransactionRequest::RequestSerializer.new(payment).to_params
@@ -68,15 +93,15 @@ module Wedding
         payment.create
 
         # Cria uma Order para registro das transações
-        Order.create(donation_id: @product.id, buyer_name: donation_params[:name], reference: reference, status: 'pending')
-
         if @donation_form.valid? && payment.errors.empty?
+          Order.create(donation_id: @product.id, buyer_name: donation_params[:name], reference: reference, status: 'pending')
+
           redirect_to wedding_supports_path,
             flash: { notice: 'Obrigado. Sua doação foi realizada com sucesso!' }
         else
           @donation_form.payment_errors = payment.errors
           puts "Payment Errors:"
-          puts payment.errors
+          puts payment.errors.join("\n")
           puts @donation_form.errors.messages
           @donation = @product
           @session_id = (PagSeguro::Session.create).id

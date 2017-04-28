@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'index', to: 'home#index', as: :index
 
+  resources :notifications
+
 #  root to: 'home#index', TODO While the home page for choosing a template is not ready...
   constraints EventSubdomainConstraint.new do
     root to: 'wedding/events#index'
