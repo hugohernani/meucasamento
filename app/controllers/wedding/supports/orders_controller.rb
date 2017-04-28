@@ -74,8 +74,9 @@ module Wedding
           redirect_to wedding_supports_path,
             flash: { notice: 'Obrigado. Sua doação foi realizada com sucesso!' }
         else
-          binding.pry
           @donation_form.payment_errors = payment.errors
+          puts "Payment Errors:"
+          payment.errors
           @donation = @product
           @session_id = (PagSeguro::Session.create).id
           render :new and return
