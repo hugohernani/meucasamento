@@ -162,6 +162,8 @@
   </div>
 </div>
 
-<%= javascript_include_tag 'pagseguro_manager', 'data-turbolinks-track': 'reload' %>
+<% content_for :footer do %>
+  <%= javascript_include_tag 'pagseguro_manager', 'data-turbolinks-track': 'reload' %>
+<% end %>
 
 <%= render 'layouts/footer' %>
