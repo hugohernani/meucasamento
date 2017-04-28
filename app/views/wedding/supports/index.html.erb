@@ -52,7 +52,7 @@
         </div>
         <h3>Depósito</h3>
         <p class="lead"><%= @current_event.wedding_support.deposit_message %></p>
-        <a link="#deposito" class="btn btn-primary">Ver detalhes</a>
+        <a href="#deposito" class="btn btn-primary">Ver detalhes</a>
 			</div><!-- /.col-lg-4 -->
 
 			<div class="col-sm-4 wow fadeInDown text-center" data-scroll-reveal>
@@ -64,7 +64,7 @@
         </div>
         <h3>Doação online</h3>
         <p class="lead"><%= @current_event.wedding_support.donations_message %></p>
-        <p><a link="#doacao" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
+        <p><a href="#doacao" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
 			</div><!-- /.col-lg-4 -->
 
 			<div class="col-sm-4 wow fadeInDown text-center" data-scroll-reveal="enter from the right">
@@ -76,7 +76,7 @@
         </div>
         <h3>Lista de presentes</h3>
         <p class="lead"><%= @current_event.wedding_support.gifts_message %></p>
-        <p><a link="#lista_de_presentes" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
+        <p><a href="#lista_de_presentes" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
 			</div><!-- /.col-lg-4 -->
 
 		</div><!-- /.row -->
@@ -180,7 +180,7 @@
 
 <% if @current_event.wedding_support.wedding_list.present? %>
   <section id="lista-de-presentes-container">
-    <a name="lista-de-presentes"></a>
+    <a name="lista_de_presentes"></a>
     <div class="container text-center">
       <div class="row">
         <div class="col-sm-12 heading" data-scroll-reveal>
