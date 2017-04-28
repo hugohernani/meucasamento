@@ -7,21 +7,21 @@
     <% end %>
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
-    <a href="person1.html" class="hover-effect">
-      <img src="http://placehold.it/270#270.jpg" class="img-responsive img-circle" alt="" />
-      <span class="img-circle">
-        <i class="fa fa-link fa-3x"></i>
+    <div class="hover-effect">
+      <%= image_tag(attachment_path(<%= @current_event.groom.my_parents.mother_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem de mãe do noivo") %>
+      <span class="img-rounded">
+        <i class="fa fa-heart fa-4x"></i>
       </span>
-    </a>
+    </div>
     <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
-    <a href="person1.html" class="hover-effect">
-      <img src="http://placehold.it/270#270.jpg" class="img-responsive img-circle" alt="" />
-      <span class="img-circle">
-        <i class="fa fa-link fa-3x"></i>
+    <div class="hover-effect">
+      <%= image_tag(attachment_path(<%= @current_event.bride.my_parents.mother_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem de mãe do noiva") %>
+      <span class="img-rounded">
+        <i class="fa fa-heart fa-4x"></i>
       </span>
-    </a>
+    </div>
     <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
@@ -43,21 +43,21 @@
     <% end %>
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
-    <a href="person1.html" class="hover-effect">
-      <%= image_tag asset_path 'http://placehold.it/270#270.jpg', class: 'img-responsive img-circle', alt: "" %>
-      <span class="img-circle">
-        <i class="fa fa-link fa-3x"></i>
+    <div class="hover-effect">
+      <%= image_tag(attachment_path(<%= @current_event.groom.my_parents.father_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem do pai do noivo") %>
+      <span class="img-rounded">
+        <i class="fa fa-heart fa-4x"></i>
       </span>
-    </a>
+    </div>
     <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
-    <a href="person2.html" class="hover-effect">
-      <%= image_tag asset_path 'http://placehold.it/270#270.jpg', class: 'img-responsive img-circle', alt: "" %>
-      <span class="img-circle">
-        <i class="fa fa-link fa-3x"></i>
+    <div class="hover-effect">
+      <%= image_tag(attachment_path(<%= @current_event.bride.my_parents.father_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem do pai do noiva") %>
+      <span class="img-rounded">
+        <i class="fa fa-heart fa-4x"></i>
       </span>
-    </a>
+    </div>
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
     <h5><%= @current_event.bride.my_parents.father_name %></h5>
