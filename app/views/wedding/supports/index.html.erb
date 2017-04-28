@@ -144,16 +144,18 @@
 		 		  <h4>Opções</h4>
         </div>
         <div class="row">
-          <div class="col-sm-9">
-            <% @current_event.wedding_list.donations.take(3).each do |donation| %>
-              <%= link_to new_wedding_support_orders_path(support_id: @current_event.wedding_support.id, donation_id: donation.id) do %>
-                <div class="col-sm-3">
-                  <div class="btn btn-primary"><%= number_to_currency(donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
-                </div>
+          <div class="col-sm-12 form-group">
+            <div class="row">
+              <% @current_event.wedding_list.donations.each do |donation| %>
+                <%= link_to new_wedding_support_orders_path(support_id: @current_event.wedding_support.id, donation_id: donation.id) do %>
+                  <div class="col-sm-3 form-group">
+                    <div class="btn btn-primary"><%= number_to_currency(donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
-          <div class="col-sm-3 featured-box cool-shadow">
+          <div class="col-sm-6 text-center col-sm-offset-3 featured-box cool-shadow">
             Ou doe outro valor: <br />
             <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post">
               <input type="hidden" name="currency" value="BRL" />
@@ -163,15 +165,6 @@
             </form>
           </div>
           <div class="clear"></div>
-          <div class="col-sm-12">
-            <% @current_event.wedding_list.donations.drop(3).each do |donation| %>
-              <%= link_to new_wedding_support_orders_path(support_id: @current_event.wedding_support.id, donation_id: donation.id) do %>
-                <div class="col-sm-3">
-                  <div class="btn btn-primary"><%= number_to_currency(donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
-                </div>
-              <% end %>
-            <% end %>
-          </div>
         </div>
 	 		</div>
 	 	</div><! --/row -->
