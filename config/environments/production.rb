@@ -86,6 +86,7 @@ Rails.application.configure do
 
   PAPERCLIP_STORAGE_OPTIONS = {
     storage: :cloudinary,
+    path: ':id/:style/:filename',
     cloudinary_credentials: Rails.root.join("config/cloudinary.yml"),
     default: {
       tags: [ 'MeuCasamento', 'Asset' ],
