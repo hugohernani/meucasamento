@@ -1,6 +1,6 @@
-<div class="store <%= current_store == store ? 'active' : '' %>">
+<div class="store">
   <%= link_to show_products_wedding_supports_path(store_id: store, format: :js), remote: true, method: :post do %>
-    <div class="col-sm-4">
+    <div class="col-sm-4 <%= current_store == store ? 'cool-shadow' : '' %>">
       <%= image_tag attachment_path(store.attachment, :smaller), class: "img-responsive", alt: "#{store.name}" %>
     </div>
   <% end %>
