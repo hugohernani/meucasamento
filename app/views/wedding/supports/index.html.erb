@@ -136,7 +136,7 @@
 
 	 	<div class="row context-block">
 	 		<div class="col-sm-6" data-scroll-reveal="enter from the left">
-        <%= image_tag attachment_path(nil, :medium), class: 'img-responsive', alt: "" %>
+        <%= image_tag asset_path('pagseguro-options.jpg'), class: 'img-responsive', alt: "" %>
 	 		</div>
 
 	 		<div class="col-sm-6" data-scroll-reveal="enter from the right">
@@ -144,17 +144,33 @@
 		 		  <h4>Opções</h4>
         </div>
         <div class="row">
-          <div class="col-sm-3">
-            <div class="btn btn-primary">R$ 50</div>
+          <div class="col-sm-9">
+            <% @current_event.wedding_list.donations.take(3).each do |donation| %>
+              <%= link_to new_wedding_support_orders_path(support_id: @current_event.wedding_support.id, donation_id: donation.id) do %>
+                <div class="col-sm-3">
+                  <div class="btn btn-primary"><%= number_to_currency(donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
-          <div class="col-sm-3">
-            <div class="btn btn-primary">R$ 100</div>
+          <div class="col-sm-3 featured-box cool-shadow">
+            Ou doe outro valor: <br />
+            <form action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post">
+              <input type="hidden" name="currency" value="BRL" />
+              <input type="hidden" name="receiverEmail" value="hhernanni@gmail.com" />
+              <input type="hidden" name="iot" value="button" />
+              <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/doacoes/120x53-doar.gif" name="submit" alt="Doe com PagSeguro - é rápido, grátis e seguro!" />
+            </form>
           </div>
-          <div class="col-sm-3">
-            <div class="btn btn-primary">R$ 200</div>
-          </div>
-          <div class="col-sm-3">
-            <div class="btn btn-primary">R$ 300</div>
+          <div class="clear"></div>
+          <div class="col-sm-12">
+            <% @current_event.wedding_list.donations.drop(3).each do |donation| %>
+              <%= link_to new_wedding_support_orders_path(support_id: @current_event.wedding_support.id, donation_id: donation.id) do %>
+                <div class="col-sm-3">
+                  <div class="btn btn-primary"><%= number_to_currency(donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         </div>
 	 		</div>
@@ -179,5 +195,7 @@
       </div>
   </section>
 <% end %>
+
+<div id="product-view"></div>
 
 <%= render 'layouts/footer' %>

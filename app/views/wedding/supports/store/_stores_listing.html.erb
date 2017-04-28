@@ -1,36 +1,29 @@
-<% stores = @stores || @current_event.wedding_support.wedding_list.stores %>
+<% stores = (@stores || @current_event.wedding_support.wedding_list.stores) %>
 <% current_store = @current_store || stores.first %>
 
 <% if stores.any? %>
-<div class="row context-block">
-  <div class="col-sm-6" data-scroll-reveal="enter from the left">
-    <div class="text-center">
-      <h4>Lojas</h4>
-    </div>
-    <div class="row stores">
-      <% stores.each do |store| %>
-        <div class="store <%= current_store == store ? 'active' : '' %>">
-          <%= link_to show_products_wedding_supports_path(store_id: store, format: :js), remote: true, method: :post do %>
-            <div class="col-sm-6">
-              <%= image_tag attachment_path(store.attachment, :smaller), class: "img-responsive", alt: "#{store.name}" %>
-            </div>
-            <div class="col-sm-6">
-              <h5><%= store.name %></h5>
-              Endereço: <%= store.address %>
-            </div>
-          <% end %>
-        </div>
-        <div class="clear"></div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="col-sm-6" data-scroll-reveal="enter from the right">
-    <div id="store-products">
-      <%= render partial: 'wedding/supports/store/products', locals: { current_store: current_store } %>
+  <div class="row text-center">
+    <div class="col-sm-12" data-scroll-reveal="enter from the left">
+      <div class="col-sm-9">
+        <%= render partial: 'wedding/supports/store/store',
+          collection: stores.take(3), locals: { current_store: current_store } %>
+      </div>
+      <div class="col-sm-3 featured-box cool-shadow">
+        <p class="featured-text">Lembre-se de avisar aos noivos através dos telefones:</p>
+        <span><strong>(82) 99992-6303</strong> <i class="fa fa-whatsapp"> </i></span><br />
+        <span><strong>(82) 99604-0323</strong> <i class="fa fa-whatsapp"> </i></span>
+        <p class="featured-text"><em>Ou clique no produto e mande um comprovante.</em> ;)</p>
+      </div>
+      <div class="clear"></div>
+      <div class="col-sm-12">
+        <%= render partial: 'wedding/supports/store/store',
+          collection: stores.drop(3), locals: { current_store: current_store } %>
+      </div>
+      <div id="store-products" class="context-block" data-scroll-reveal="enter from the right">
+        <%= render partial: 'wedding/supports/store/products', locals: { current_store: current_store } %>
+      </div>
     </div>
   </div>
-</div>
 <% else %>
-<h3>Nenhuma loja adicionada.</h3>
+<h2>Nenhuma loja adicionada.</h2>
 <% end %>

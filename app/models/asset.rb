@@ -5,11 +5,10 @@ class Asset < ApplicationRecord
   belongs_to :owner, polymorphic: true, inverse_of: :assets
 
   # add a delete_<asset_name> method:
-  attr_accessor :delete_asset, :default_asset
+  attr_accessor :delete_asset
 
   has_attached_file :attachment, {
                             default_url: lambda { |f| "#{f.instance.create_default_url}" },
-                            path: ':rails_root/public/attachments/:class/:attachment/:id/:id_partition/:filename',
                             styles: Proc.new { |f| f.instance.styles }
                           }.merge(PAPERCLIP_STORAGE_OPTIONS)
 

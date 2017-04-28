@@ -1,0 +1,63 @@
+<div id='update-product-form'>
+  <a role="button" class="close-thick" onclick="btn_close_parent(this)"></a>
+  <div class="container-fluid text-center">
+    <div class="row">
+      <div class="col-sm-12 heading">
+        <h2><%= @product.name %></h2>
+        Se você comprou este produto, por favor, informe seus dados abaixo para que possamos confirmar contigo a saída deste produto da lista de presentes na loja <%= @product.store.name %>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+      <div class="col-sm-10 col-sm-offset-1">
+        <%= form_for(@product_handling, url: update_product_wedding_supports_path(product_id: @product),
+          method: :post, remote: true,
+          html: { id: "form_#{@product.store.name}_#{@product.name}",
+            class: 'form-horizontal' }, multipart: true) do |f| %>
+
+          <fieldset>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">* Nome:</label>
+                <div class="col-sm-8">
+                  <%= f.text_field :buyer_name, placeholder: 'Fulano', class: 'full',
+                   title: "Por favor preenchar este campo", required: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label class="col-sm-5 control-label">* Telefone:</label>
+                <div class="col-sm-7">
+                  <%= f.text_field :phone_number, placeholder: 'Telefone', class: 'full',
+                  title: "Por favor preenchar este campo", required: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">*Data da compra:</label>
+                <div class="col-sm-8">
+                  <%= f.datetime_field(:bought_date, max: Date.today.end_of_day,
+                  title: "Por favor preenchar este campo") %>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">* Comprovante:</label>
+                <div class="col-sm-8">
+                  <%= f.file_field(:file, title: "Escolha um arquivo", required: true) %>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="clear"></div>
+
+          <%= f.submit 'Notificar', class: 'btn btn-lg btn-primary' %>
+        <% end %>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>

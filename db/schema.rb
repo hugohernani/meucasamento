@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421165656) do
+ActiveRecord::Schema.define(version: 20170423183532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20170421165656) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["wedding_support_id"], name: "index_bank_accounts_on_wedding_support_id", using: :btree
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.string   "title"
+    t.decimal  "price",           precision: 10, scale: 2
+    t.text     "description"
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "wedding_list_id"
+    t.index ["wedding_list_id"], name: "index_donations_on_wedding_list_id", using: :btree
   end
 
   create_table "event_images", force: :cascade do |t|
@@ -123,6 +133,31 @@ ActiveRecord::Schema.define(version: 20170421165656) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_love_stories_on_event_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "donation_id"
+    t.integer  "price"
+    t.string   "status"
+    t.string   "buyer_name"
+    t.string   "reference"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["donation_id"], name: "index_orders_on_donation_id", using: :btree
+  end
+
+  create_table "product_handlings", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "buyer_name"
+    t.string   "phone_number"
+    t.datetime "bought_date"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.index ["product_id"], name: "index_product_handlings_on_product_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
@@ -199,6 +234,7 @@ ActiveRecord::Schema.define(version: 20170421165656) do
   end
 
   add_foreign_key "bank_accounts", "wedding_supports"
+  add_foreign_key "donations", "wedding_lists"
   add_foreign_key "event_images", "events"
   add_foreign_key "event_participants", "accounts", column: "participant_id"
   add_foreign_key "event_participants", "events"
@@ -206,6 +242,8 @@ ActiveRecord::Schema.define(version: 20170421165656) do
   add_foreign_key "fiance_abouts", "accounts", column: "fiance_id"
   add_foreign_key "fun_facts", "events"
   add_foreign_key "love_stories", "events"
+  add_foreign_key "orders", "donations"
+  add_foreign_key "product_handlings", "products"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "wedding_lists"
   add_foreign_key "wedding_lists", "wedding_supports"

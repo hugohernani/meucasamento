@@ -1,15 +1,21 @@
-<% if current_store.products.blank? %>
-  <h4>Essa loja não contém produtos.</h4>
+<% if current_store.products.without_handlings.blank? %>
+  <h4>Essa loja não contém mais produtos disponíveis.</h4>
 <% else %>
   <div class="text-center">
-    <h4>Lista na <%= current_store.name %></h4>
+    <span class="store-title">Lista na <span class="feature-text"><%= current_store.name %></span></span>
+    <br />
+    <span class="feature-text"><%= current_store.address %></span>
   </div>
   <div class="row">
-    <% current_store.products.each do |product| %>
-      <div class="col-sm-4">
-        <%= image_tag attachment_path(product.attachment, :smaller), class: 'img-responsive img-circle', alt: 'product.name' %>
-        <br>
-        <div class="btn"><%= number_to_currency(product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
+    <% current_store.products.without_handlings.each do |product| %>
+      <div class="col-sm-2">
+        <%= link_to show_product_wedding_supports_path(product_id: product.id, format: :js), remote: true, method: :post do %>
+          <%= product.name %>
+          <br />
+          <%= image_tag attachment_path(product.attachment, :smaller), class: 'img-responsive img-circle', alt: "#{product.name}" %>
+          <br />
+          <div class="btn"><%= number_to_currency(product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
+        <% end %>
       </div>
     <% end %>
   </div>

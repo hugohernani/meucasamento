@@ -11,11 +11,15 @@ class WeddingList < ApplicationRecord
   has_many :products,                               class_name: Product,
                                                     through: :stores
 
+  has_many :donations,                              class_name: Donation,
+                                                    inverse_of: :wedding_list
+
 
   accepts_nested_attributes_for :stores, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :donations, reject_if: :all_blank, allow_destroy: true
 
   def to_s
-    "#{id}. Event: #{wedding_support.event.name}"
+    "#{id}. Event: #{wedding_support.event.to_s}"
   end
 end

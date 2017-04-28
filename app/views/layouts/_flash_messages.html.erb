@@ -1,12 +1,16 @@
-<div id="flash-message">
-  <% if notice %>
-    <div class="wrapper">
-      <p class="notice"><%= notice %><a class="close-message">×</a></p>
+<div id="flash-message" class="container-fluid text-center">
+  <div class="row">
+    <div class="col-sm-12">
+      <% if notice %>
+        <div class="wrapper">
+          <p class="notice"><%= notice %><a class="close-message" onclick="btn_hide_elem('flash-message')">×</a></p>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="wrapper">
+          <p class="failure"><%= alert %><a class="close-message" onclick="btn_hide_elem('flash-message')">×</a></p>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-  <% if alert %>
-    <div class="wrapper">
-      <p class="failure"><%= alert %></p>
-    </div>
-  <% end %>
+  </div>
 </div>

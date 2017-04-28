@@ -23,14 +23,20 @@
     <%= javascript_include_tag 'respond.min' %>
 		<![endif]-->
 
+
+    <%= yield :head %>
 	</head>
 	<body >
+
+    <%= csrf_meta_tag %>
 
     <%= render "layouts/flash_messages" %>
 
     <%= yield %>
 
     <%= javascript_include_tag 'wedding_footer', 'data-turbolinks-track': 'reload' %>
+
+    <%= yield :footer %>
 
     <%= javascript_tag :jcountdown do -%>
       var weddingDate = new Date('<%= l @current_event.celebration_date, format: :countdown, locale: :en %>');

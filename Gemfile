@@ -63,6 +63,11 @@ gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'rails_admin_rollincode', '~> 1.0'
 
+# PagSeguro
+gem "pagseguro-oficial", "~> 2.5.0"
+
+gem 'bootstrap-datepicker-rails'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.1'
   gem 'byebug', platform: :mri

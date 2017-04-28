@@ -510,7 +510,7 @@ footer {
 /* Other Customization */
 
 .context-block{
-  background-color: #f8f8f8;
+  background-color: rgba(248,248,248,0.41);
   padding: 20px 0;
 }
 
@@ -533,6 +533,96 @@ footer {
 
 .clear {
   clear: both;
+}
+
+#wedding-support{
+  color: #de0000;
+}
+
+#wedding-orders-new{
+  color: #000;
+}
+
+#wedding-orders-new legend{
+  border-bottom-color: #9a4343;
+}
+
+#store-products .store-title{
+  font-family: 'Engagement', cursive;
+  font-weight: normal;
+  font-size: 25px;
+  margin: 0px;
+}
+
+#store-products .feature-text{
+  color: #de0000;
+}
+
+#update-product-form{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  z-index: 1999;
+  color: #000;
+}
+
+/* Close Button */
+
+[class*='close-'] {
+  font: 14px/100% arial, sans-serif;
+  position: absolute;
+  right: 5px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #fff;
+  top: 5px;
+  z-index: 2000;
+}
+
+[class*='close-']:hover{
+  cursor: pointer;
+}
+
+.close-thick:after {
+  content: '✖'; /* UTF-8 symbol */
+}
+
+.malert-danger{
+  color: #d6516d;
+}
+
+.featured-box{
+  color: rgb(255, 0, 0);
+  border-radius:5px;
+  padding: 10px;
+}
+
+.cool-shadow{
+  box-shadow:0 1px 4px rgba(255, 0, 0, 0.6), 0 0 20px rgba(0, 0, 0, 0.1) inset;
+}
+
+#flash-message{
+  display: inline-block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2001;
+}
+
+#flash-message .wrapper{
+  background-color: bisque;
+}
+
+#flash-message p{
+  color: red;
+  font-family: "Engagement", Cursive;
+  font-size: 40px;
+  margin: 0;
+  padding: 5px 0px;
 }
 
 /* RESPONSIVE STYLES

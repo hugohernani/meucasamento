@@ -1,0 +1,167 @@
+<% content_for :footer do %>
+  <% if Rails.env.production? %>
+  <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+  <% else %>
+  <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+  <% end %>
+<% end %>
+
+<div id="wedding-orders-new">
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-12 heading" data-scroll-reveal>
+        <h2>Finalize sua doação</h2>
+        Os noivos desde já agradecem sua constribuição
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+
+    <div class="row context-block">
+      <legend>Dados da Doação</legend>
+      <% if @donation.title.present? %>
+        <p>Tipo: <%= @donation.title %></p>
+      <% end %>
+      <p>Valor: <%= number_to_currency(@donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
+      <% if @donation.description.present? %>
+      <p>Descrição: <%= @donation.description %></p>
+      <% end %>
+      <input id='price' type="hidden" value="<%= @donation.price %>">
+      <div id="payment_datas"></div>
+    </div>
+
+    <div class="errors-container row context-block">
+      <%= render partial: 'shared/errors', locals: { record: @donation_form } %>
+      <% if @donation_form.payment_errors.present? %>
+        <legend>Erro</legend>
+        <div class="featured-box cool-shadow">
+          Algum erro aconteceu. <br />
+          Verifique os dados de usuário e do cartão de crédito e tente novamente. <br />
+        </div>
+      <% end %>
+    </div>
+
+    <br />
+
+    <div class="row">
+      <%= form_for @donation_form, url: wedding_support_orders_path, method: :post,
+        html: { class: 'form-horizontal'} do |f| %>
+        <div id='payment-datas'>
+          <div>
+            <%= f.hidden_field :donation_id, value: @donation.id %>
+            <%= f.hidden_field :card_token, id: "card_token" %>
+            <%= f.hidden_field :sender_hash, id: "sender_hash" %>
+            <%= f.hidden_field :session_id, id: "session_id", value:"#{@session_id}" %>
+            <%= csrf_meta_tag %>
+          </div>
+          <fieldset>
+            <legend>Dados Pessoais do Doador</legend>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Nome</label>
+              <div class="col-sm-4">
+                <%= f.text_field :name, class: "form-control", placeholder: 'ex. Hugo Hernani', required: true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Email</label>
+              <div class="col-sm-4">
+                <%= f.text_field :email, class: "form-control", placeholder: 'ex. c12336080542705011354@sandbox.pagseguro.com.br', required: true %>
+              </div>
+              <%= "*No sandbox use o email: c12336080542705011354@sandbox.pagseguro.com.br" if Rails.env.development? %>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Cpf</label>
+              <div class="col-sm-2">
+                <%= f.text_field :cpf, class: "form-control", placeholder: '39813476548', required: true %>
+              </div>
+              * Não use <strong>.</strong> ou <strong>-</strong> no CPF. :)
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Telefone</label>
+              <div class="col-sm-1">
+                <%= f.text_field :phone_code, class: "form-control", placeholder: '82', required: true %>
+              </div>
+              <div class="col-sm-2">
+                <%= f.text_field :phone_number, class: "form-control", placeholder: '999887766', required: true %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Data de Nascimento</label>
+              <div class="col-sm-2">
+                <%= f.text_field :birthday, class: "form-control datepicker", placeholder: '10/10/1992', required: true %>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Dados do Cartão</legend>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Nome no Cartão</label>
+              <div class="col-sm-4">
+                <%= f.text_field :card_name, class: "form-control", id: "card-name", placeholder: 'Nome impresso no Cartão' %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" for="card-number">Número do Cartão</label>
+              <div class="col-sm-4">
+                <%= f.text_field :card_number, class: "form-control", id: "card-number", placeholder: 'Número do Cartão (Crédito ou Débito)', required: true %>
+              </div>
+              <div class="col-sm-1">
+                <span class="card-flag"><%= f.object.card_flag %></span>
+              </div>
+            </div>
+            <%= f.hidden_field :card_flag, class:'card-flag' %>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Data de expiração</label>
+              <div class="col-sm-9">
+                <div class="row">
+                  <div class="col-xs-3">
+                    <%= f.select :card_month, months_options, { include_blank: 'Mês' },
+                      id: 'card-month', class: "form-control col-sm-2", required: true %>
+                  </div>
+                  <div class="col-xs-3">
+                    <%= f.select :card_year, year_options, { include_blank: 'Ano' },
+                      id: 'card-year', class:"form-control", required: true %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" id="card-cvv-box" style="display: none">
+              <label class="col-sm-3 control-label">Número de segurança (CVV)</label>
+              <div class="col-sm-3">
+                <%= f.text_field :card_cvv, class: "form-control", id: "card-cvv", placeholder: 'Número de Segurança' %>
+              </div>
+            </div>
+            <div class="form-group" id="card-options-box" style="display: none">
+              <hr />
+              <label class="col-sm-3 control-label">Parcelamentos</label>
+              <div class="col-sm-3">
+                <%= f.select :card_options, [['Não parcelar', -1]], {include_blank: 'Parcelar?'},
+                  id: 'card-options', class: "form-control col-sm-2"%>
+              </div>
+              <hr />
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-6">
+                <button type="button" class="btn btn-success" id="buy-button">Confirmar dados do cartão</button>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div id='finish-buy' style="display: none">
+          <fieldset>
+            <legend>Confirmar Doação</legend>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-6">
+                <button type="submit" class="btn btn-success" id="buy-button">Finalizar Doação</button>
+                <button type="button" class="btn btn-primary" id="edit-payment">Editar Informações de Cartão</button>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'pagseguro_manager', 'data-turbolinks-track': 'reload' %>
+
+<%= render 'layouts/footer' %>
