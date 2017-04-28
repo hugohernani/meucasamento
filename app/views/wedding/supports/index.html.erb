@@ -44,36 +44,42 @@
 
 		<div id="support-options" class="row context-block" >
       <div class="col-sm-4 wow fadeInDown text-center" data-scroll-reveal="enter from the left">
-        <div class="hover-effect">
-          <%= image_tag asset_path('deposito.jpg'), class: 'img-circle img-responsive', alt: "" %>
-          <span class="img-circle">
-            <i class="fa fa-money fa-3x"></i>
-          </span>
-        </div>
+        <%= link_to "#deposito" do %>
+          <div class="hover-effect">
+            <%= image_tag asset_path('deposito.jpg'), class: 'img-circle img-responsive', alt: "" %>
+            <span class="img-circle">
+              <i class="fa fa-money fa-3x"></i>
+            </span>
+          </div>
+        <% end %>
         <h3>Depósito</h3>
         <p class="lead"><%= @current_event.wedding_support.deposit_message %></p>
         <a href="#deposito" class="btn btn-primary">Ver detalhes</a>
 			</div><!-- /.col-lg-4 -->
 
 			<div class="col-sm-4 wow fadeInDown text-center" data-scroll-reveal>
-        <div class="hover-effect">
-          <%= image_tag asset_path('pagseguro.png'), class: 'img-circle img-responsive', alt: "" %>
-          <span class="img-circle">
-            <i class="fa fa-credit-card fa-3x"></i>
-          </span>
-        </div>
+        <%= link_to "#doacao" do %>
+          <div class="hover-effect">
+            <%= image_tag asset_path('pagseguro.png'), class: 'img-circle img-responsive', alt: "" %>
+            <span class="img-circle">
+              <i class="fa fa-credit-card fa-3x"></i>
+            </span>
+          </div>
+        <% end %>
         <h3>Doação online</h3>
         <p class="lead"><%= @current_event.wedding_support.donations_message %></p>
         <p><a href="#doacao" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
 			</div><!-- /.col-lg-4 -->
 
 			<div class="col-sm-4 wow fadeInDown text-center" data-scroll-reveal="enter from the right">
-        <div class="hover-effect">
-          <%= image_tag asset_path('presentes.jpg'), class: 'img-circle img-responsive', alt: "" %>
-          <span class="img-circle">
-            <i class="fa fa-gift fa-3x"></i>
-          </span>
-        </div>
+        <%= link_to "#deposito" do %>
+          <div class="hover-effect">
+            <%= image_tag asset_path('presentes.jpg'), class: 'img-circle img-responsive', alt: "" %>
+            <span class="img-circle">
+              <i class="fa fa-gift fa-3x"></i>
+            </span>
+          </div>
+        <% end %>
         <h3>Lista de presentes</h3>
         <p class="lead"><%= @current_event.wedding_support.gifts_message %></p>
         <p><a href="#lista_de_presentes" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
