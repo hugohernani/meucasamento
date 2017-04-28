@@ -76,7 +76,8 @@ module Wedding
         else
           @donation_form.payment_errors = payment.errors
           puts "Payment Errors:"
-          payment.errors
+          puts payment.errors
+          puts @donation_form.errors.messages
           @donation = @product
           @session_id = (PagSeguro::Session.create).id
           render :new and return
