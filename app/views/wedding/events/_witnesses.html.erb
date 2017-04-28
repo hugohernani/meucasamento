@@ -7,7 +7,9 @@
   <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
     <h5><%= witness_couple.male_name %></h5>
     <h6>Testemunha do Noivo</h6>
+    <% if witness_couple.male_description.present? %>
     <p><%= witness_couple.male_description %></p>
+    <% end %>
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
     <a href="person1.html" class="hover-effect">
@@ -29,7 +31,9 @@
   <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
     <h5><%= witness_couple.female_name %></h5>
     <h6>Testemunha do Noivo</h6>
+    <% if witness_couple.female_description.present? %>
     <p><%= witness_couple.female_description %></p>
+    <% end %>
     <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
   </div>
 </div>
@@ -45,7 +49,9 @@
   <div class="col-sm-3 text-right" data-scroll-reveal="enter from the left after 0.25s">
     <h5><%= witness_couple.male_name %></h5>
     <h6>Testemunha do Noivo</h6>
+    <% if witness_couple.male_description.present? %>
     <p><%= witness_couple.male_description %></p>
+    <% end %>
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
     <a href="person1.html" class="hover-effect">
@@ -67,7 +73,9 @@
   <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
     <h5><%= witness_couple.female_name %></h5>
     <h6>Testemunha do Noivo</h6>
+    <% if witness_couple.female_description.present? %>
     <p><%= witness_couple.female_description %></p>
+    <% end %>
     <div class="mobile-divider"><span></span><i class="fa fa-heart"></i><span></span></div>
   </div>
 </div>
