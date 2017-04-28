@@ -35,9 +35,9 @@ class Asset < ApplicationRecord
       {
         background: '1600x1600#',
         slider: '1600x900>',
-        medium: '370x370#',
-        small: '270x270#',
-        smaller: '170x170#'
+        medium: '370x370>',
+        small: '270x270>',
+        smaller: '170x170>'
       }
     # else
     #   if @dynamic_style_format.present?

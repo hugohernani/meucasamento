@@ -13,7 +13,7 @@
       <div class="container-fluid text-center">
         <div class="col-sm-6" data-scroll-reveal="enter from the left">
           <a href="person1.html" class="hover-effect">
-            <%= image_tag( attachment_path(@current_event.groom.about_us.asset.attachment, :medium), class: "img-responsive img-rounded", alt: 'Groom Profile Image') %>
+            <%= image_tag( attachment_path(@current_event.top_slider_assets.first.attachment, :medium), class: "img-responsive img-rounded", alt: 'Couple Picture') %>
             <span class="img-rounded">
               <i class="fa fa-heart fa-4x"></i>
             </span>
