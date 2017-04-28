@@ -20,6 +20,6 @@ class WeddingList < ApplicationRecord
   accepts_nested_attributes_for :donations, reject_if: :all_blank, allow_destroy: true
 
   def to_s
-    "#{id}. Event: #{wedding_support.event.to_s}"
+    id.to_s
   end
 end
