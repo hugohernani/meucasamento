@@ -3,7 +3,7 @@ class WeddingParents < ApplicationRecord
   belongs_to :fiance,   class_name: Account, inverse_of: :my_parents, required: true
   has_many :assets,     class_name: Asset, as: :owner, inverse_of: :owner
 
-  validates :father_name, :father_description, :mother_name, :mother_description, presence: true
+  validates :father_name, :mother_name, presence: true
   validates :assets, length: { minimum: 2, maximum: 2 }
 
   accepts_nested_attributes_for :assets, reject_if: :all_blank, allow_destroy: true
