@@ -5,11 +5,7 @@ class ProductHandling < ApplicationRecord
 
   validates :buyer_name, :phone_number, :phone_number, :bought_date, presence: true
 
-  has_attached_file :file,
-                    default_url: 'public/missing/default/:style.jpg',
-                    styles: { thumbnail: '60x60x' },
-                    default_url: 'noimage/:style.png',
-                    path: ':rails_root/public/attachments/:class/:attachment/:id/:id_partition/:filename'
+  has_attached_file :file, PAPERCLIP_STORAGE_OPTIONS
 
   validates_attachment :file,
     presence: true,
