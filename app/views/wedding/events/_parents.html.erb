@@ -8,7 +8,7 @@
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
     <div class="hover-effect">
-      <%= image_tag(attachment_path(<%= @current_event.groom.my_parents.mother_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem de mãe do noivo") %>
+      <%= image_tag(attachment_path(@current_event.groom.my_parents.mother_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem de mãe do noivo")) %>
       <span class="img-rounded">
         <i class="fa fa-heart fa-4x"></i>
       </span>
@@ -17,7 +17,7 @@
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
     <div class="hover-effect">
-      <%= image_tag(attachment_path(<%= @current_event.bride.my_parents.mother_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem de mãe do noiva") %>
+      <%= image_tag(attachment_path(@current_event.bride.my_parents.mother_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem de mãe do noiva")) %>
       <span class="img-rounded">
         <i class="fa fa-heart fa-4x"></i>
       </span>
@@ -44,7 +44,7 @@
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the left after 0.25s">
     <div class="hover-effect">
-      <%= image_tag(attachment_path(<%= @current_event.groom.my_parents.father_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem do pai do noivo") %>
+      <%= image_tag(attachment_path(@current_event.groom.my_parents.father_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem do pai do noivo")) %>
       <span class="img-rounded">
         <i class="fa fa-heart fa-4x"></i>
       </span>
@@ -53,7 +53,7 @@
   </div>
   <div class="col-sm-3" data-scroll-reveal="enter from the right after 0.5s">
     <div class="hover-effect">
-      <%= image_tag(attachment_path(<%= @current_event.bride.my_parents.father_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem do pai do noiva") %>
+      <%= image_tag(attachment_path(@current_event.bride.my_parents.father_image.attachment :small), class: "img-responsive img-rounded", alt: "Imagem do pai do noiva")) %>
       <span class="img-rounded">
         <i class="fa fa-heart fa-4x"></i>
       </span>
