@@ -625,6 +625,13 @@ footer {
   padding: 5px 0px;
 }
 
+#volume-icon-btn{
+  position: fixed;
+  top: 5px;
+  right: 10px;
+  z-index: 3000;
+}
+
 /* RESPONSIVE STYLES
 =========================================================================================*/
 

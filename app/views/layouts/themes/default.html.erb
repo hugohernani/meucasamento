@@ -34,6 +34,8 @@
 
     <%= yield %>
 
+    <%= render 'shared/audios' %>
+
     <%= javascript_include_tag 'wedding_footer', 'data-turbolinks-track': 'reload' %>
 
     <%= yield :footer %>

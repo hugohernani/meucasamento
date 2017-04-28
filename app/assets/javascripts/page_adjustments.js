@@ -5,9 +5,28 @@
   $.fn.btn_hide_elem = function(elem_id){
     $("#" + elem_id).hide("fast");
   }
+
 }(jQuery));
 
+toggleSong = function(elem_id){
+  elem = $("#" + elem_id);
+  elem.click(function(){
+    song_elem = $("#main-song");
+    if(elem.hasClass("fa-volume-off")){
+      elem.removeClass("fa-volume-off");
+      elem.addClass("fa-volume-up");
+      song_elem.trigger("pause");
+    }else{
+      elem.removeClass("fa-volume-up");
+      elem.addClass("fa-volume-off");
+      song_elem.trigger("play");
+    }
+  });
+}
+
 close_flash_message = function(){
+  toggleSong('volume-icon-btn');
+
   $("#flash-message").delay(8000).hide('slow')
     .find('.close-message').click(function(){ $(this).remove(); });
 
