@@ -1,11 +1,3 @@
-<% content_for :footer do %>
-  <% if Rails.env.production? %>
-  <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
-  <% else %>
-  <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
-  <% end %>
-<% end %>
-
 <div id="wedding-orders-new">
   <div class="container text-center">
     <div class="row">
@@ -163,7 +155,14 @@
 </div>
 
 <% content_for :footer do %>
+  <% if Rails.env.production? %>
+  <script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+  <% else %>
+  <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+  <% end %>
+
   <%= javascript_include_tag 'pagseguro_manager', 'data-turbolinks-track': 'reload' %>
 <% end %>
+
 
 <%= render 'layouts/footer' %>
