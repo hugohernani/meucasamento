@@ -9,7 +9,7 @@ class WeddingSupport < ApplicationRecord
   has_many :products, class_name: Product, through: :stores
 
   # Validations
-  validates :message, presence: true
+  validates :message, :deposit_message, :donations_message, :gifts_message, presence: true
 
   accepts_nested_attributes_for :wedding_list, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :bank_accounts, reject_if: :all_blank, allow_destroy: true

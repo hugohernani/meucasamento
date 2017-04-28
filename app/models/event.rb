@@ -104,7 +104,14 @@ class Event < ApplicationRecord
   end
 
   def wedding_support
-    super || create_wedding_support(message: 'Altere essa mensagem explicando qual a melhor forma de constribuirem para vida de vocês.')
+    super || create_wedding_support(
+      message: 'Altere essa mensagem explicando qual a melhor forma de constribuirem para vida de vocês.',
+      deposit_message: 'Veja os dados bancários dos noivos e presentei-os através de depósito!',
+      donations_message: 'Que tal fazer uma doação usando cartão de crédito, débito ou até mesmo boleto bancário?',
+      gifts_message: 'Veja aqui quais lojas nós colomos nossas listas de presentes',
+      deposit_call_message: 'Adicione aqui uma pequena descrição do tipo de presente',
+      donations_call_message: 'Adicione aqui uma pequena descrição do tipo de presente',
+      gifts_call_message: 'Adicione aqui uma pequena descrição do tipo de presente')
   end
 
   def fun_facts

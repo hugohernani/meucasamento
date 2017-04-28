@@ -51,7 +51,7 @@
           </span>
         </div>
         <h3>Depósito</h3>
-        <p class="lead">Veja os dados bancários dos noivos e presentei-os através de depósito!</p>
+        <p class="lead"><%= @current_event.wedding_support.deposit_message %></p>
         <a link="#deposito" class="btn btn-primary">Ver detalhes</a>
 			</div><!-- /.col-lg-4 -->
 
@@ -63,7 +63,7 @@
           </span>
         </div>
         <h3>Doação online</h3>
-        <p class="lead">Que tal fazer uma doação usando cartão de crédito, débito ou até mesmo boleto bancário?</p>
+        <p class="lead"><%= @current_event.wedding_support.donations_message %></p>
         <p><a link="#doacao" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
 			</div><!-- /.col-lg-4 -->
 
@@ -75,7 +75,7 @@
           </span>
         </div>
         <h3>Lista de presentes</h3>
-        <p class="lead">Veja aqui quais lojas nós colomos nossas listas de presentes</p>
+        <p class="lead"><%= @current_event.wedding_support.gifts_message %></p>
         <p><a link="#lista_de_presentes" class="btn btn-embossed btn-primary view" role="button">Ver detalhes</a></p>
 			</div><!-- /.col-lg-4 -->
 
@@ -89,7 +89,7 @@
     <div class="row">
       <div class="col-sm-12 heading" data-scroll-reveal>
         <h2>Depósito</h2>
-        Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+        <%= @current_event.wedding_support.deposit_call_message %>
         <p><span></span><i class="fa fa-heart"></i><span></span></p>
       </div>
     </div>
@@ -129,7 +129,7 @@
     <div class="row">
       <div class="col-sm-12 heading" data-scroll-reveal>
         <h2>Doação</h2>
-        Você pode doar através do <strong>PagSeguro</strong>.
+        <%= @current_event.wedding_support.donations_call_message %>
         <p><span></span><i class="fa fa-heart"></i><span></span></p>
       </div>
     </div>
@@ -185,7 +185,7 @@
       <div class="row">
         <div class="col-sm-12 heading" data-scroll-reveal>
           <h2>Lista de presentes</h2>
-          Veja onde colocamos nossa <strong>lista de presentes</strong>.
+          <%= @current_event.wedding_support.gifts_call_message %>
           <p><span></span><i class="fa fa-heart"></i><span></span></p>
         </div>
       </div>
