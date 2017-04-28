@@ -10,13 +10,7 @@
 
     <div class="row context-block">
       <legend>Dados da Doação</legend>
-      <% if @donation.title.present? %>
-        <p>Tipo: <%= @donation.title %></p>
-      <% end %>
       <p>Valor: <%= number_to_currency(@donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
-      <% if @donation.description.present? %>
-      <p>Descrição: <%= @donation.description %></p>
-      <% end %>
       <input id='price' type="hidden" value="<%= @donation.price %>">
       <div id="payment_datas"></div>
     </div>
