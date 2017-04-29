@@ -11,15 +11,22 @@
     </div>
   </div>
   <div class="row">
-    <% current_store.products.without_handlings.each do |product| %>
-      <div class="col-sm-2">
-        <%= link_to show_product_wedding_supports_path(product_id: product.id, format: :js), remote: true, method: :post do %>
-          <%= product.name %>
-          <br />
-          <%= image_tag attachment_path(product.attachment, :smaller), class: 'img-responsive img-circle', alt: "#{product.name}" %>
-          <br />
-          <div class="btn"><%= number_to_currency(product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
-        <% end %>
+    <% current_store.products.without_handlings.each_slice(6).each do |product_slice| %>
+      <div class="col-sm-12">
+        <div class="row">
+          <% product_slice.each do |product| %>
+            <div class="col-sm-2 product-item">
+              <%= link_to show_product_wedding_supports_path(product_id: product.id, format: :js), remote: true, method: :post do %>
+                <%= product.name %>
+                <br />
+                <%= image_tag attachment_path(product.attachment, :smaller), class: 'img-responsive img-circle', alt: "#{product.name}" %>
+                <br />
+                <div class="btn btn-info"><%= number_to_currency(product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+        <div class="clear"></div>
       </div>
     <% end %>
   </div>
