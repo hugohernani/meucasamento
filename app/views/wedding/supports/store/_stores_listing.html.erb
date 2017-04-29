@@ -20,10 +20,14 @@
           collection: stores.drop(3), locals: { current_store: current_store } %>
       </div>
       <% if current_store.no_products? %>
-      <h4><%= current_store.instructions %></h4>
+      <div class="alert alert-info" role="alert">
+        <p><%= current_store.instructions %></p>
+      </div>
       <br />
-      <span class="feature-text"><strong><%= current_store.name %></strong> - </span>
-      <span class="feature-text"><em><%= current_store.address %></em></span>
+      <div class="alert alert-warning" role="alert">
+        <span class="feature-text"><strong><%= current_store.name %></strong> - </span>
+        <span class="feature-text"><em><%= current_store.address %></em></span>
+      </div>
       <% else %>
       <div id="store-products" class="context-block" data-scroll-reveal="enter from the right">
         <%= render partial: 'wedding/supports/store/products', locals: { current_store: current_store } %>

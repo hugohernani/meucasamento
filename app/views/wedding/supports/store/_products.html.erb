@@ -1,10 +1,14 @@
 <% if current_store.products.without_handlings.blank? %>
-  <h4>Essa loja não contém mais produtos disponíveis.</h4>
+  <div class="alert alert-info" role="alert">
+    <h4>Essa loja não contém mais produtos disponíveis.</h4>
+  </div>
 <% else %>
   <div class="text-center">
     <span class="store-title">Lista na <span class="feature-text"><%= current_store.name %></span></span>
     <br />
-    <span class="feature-text"><%= current_store.address %></span>
+    <div class="alert alert-warning" role="alert">
+      <span class="feature-text"><%= current_store.address %></span>
+    </div>
   </div>
   <div class="row">
     <% current_store.products.without_handlings.each do |product| %>
