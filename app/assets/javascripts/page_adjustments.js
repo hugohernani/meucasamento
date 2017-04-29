@@ -8,6 +8,10 @@
 
 }(jQuery));
 
+var btn_close_parent = function(el){
+  $(el).parent().remove();
+}
+
 toggleSong = function(elem_id){
   elem = $("#" + elem_id);
   elem.click(function(){

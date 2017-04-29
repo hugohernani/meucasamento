@@ -9,9 +9,9 @@
           collection: stores.take(3), locals: { current_store: current_store } %>
       </div>
       <div class="col-sm-3 featured-box cool-shadow">
-        <p class="featured-text">Lembre-se de avisar aos noivos através dos telefones:</p>
-        <span><strong>(82) 99992-6303</strong> <i class="fa fa-whatsapp"> </i></span><br />
-        <span><strong>(82) 99604-0323</strong> <i class="fa fa-whatsapp"> </i></span>
+        <p class="featured-text">Lembre-se de (1) notificar o vendedor para atualização da lista de casamento, e (2) de avisar aos noivos através dos telefones abaixo:</p>
+        <span><strong>(82) 99992-6303</strong> <i class="fa fa-whatsapp"> </i></span> /
+        <span><strong>(82) 99604-0323</strong> <i class="fa fa-whatsapp"> </i></span> <br />
         <p class="featured-text"><em>Ou clique no produto e mande um comprovante.</em> ;)</p>
       </div>
       <div class="clear"></div>
@@ -19,9 +19,16 @@
         <%= render partial: 'wedding/supports/store/store',
           collection: stores.drop(3), locals: { current_store: current_store } %>
       </div>
+      <% if current_store.no_products? %>
+      <h2><%= current_store.instructions %></h2>
+      <br />
+      <span class="feature-text"><%= current_store.name %> - </span>
+      <span class="feature-text"><%= current_store.address %></span>
+      <% else %>
       <div id="store-products" class="context-block" data-scroll-reveal="enter from the right">
         <%= render partial: 'wedding/supports/store/products', locals: { current_store: current_store } %>
       </div>
+      <% end %>
     </div>
   </div>
 <% else %>
