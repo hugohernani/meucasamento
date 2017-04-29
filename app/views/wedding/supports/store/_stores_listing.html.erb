@@ -17,6 +17,7 @@
         <p class="featured-text"><em>Ou clique no produto e mande um comprovante.</em> ;)</p>
       </div>
       <div class="clear"></div>
+      <br />
       <div class="col-sm-12">
         <%= render partial: 'wedding/supports/store/store',
           collection: stores.drop(3), locals: { current_store: current_store } %>
@@ -25,7 +26,6 @@
       <div class="alert alert-info" role="alert">
         <p><%= current_store.instructions %></p>
       </div>
-      <br />
       <div class="alert alert-warning" role="alert">
         <span class="feature-text"><strong><%= current_store.name %></strong> - </span>
         <span class="feature-text"><em><%= current_store.address %></em></span>
