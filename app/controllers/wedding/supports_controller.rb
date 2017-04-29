@@ -8,7 +8,7 @@ module Wedding
     end
 
     def show_products
-      @stores = @current_event.wedding_support.wedding_list.stores
+      @stores = @current_event.wedding_support.wedding_list.stores.includes(:products)
       @current_store = store || @stores.first
 
       respond_with(@current_store) do |format|
