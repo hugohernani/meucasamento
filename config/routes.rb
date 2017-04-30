@@ -18,6 +18,7 @@ Rails.application.routes.draw do
           post 'show_products/:store_id', to: 'supports#show_products', as: :show_products
           post 'show_product/:product_id', to: 'supports#show_product', as: :show_product
           post 'update_product/:product_id', to: 'supports#update_product', as: :update_product
+          get 'donate_product_price/:product_id', to: 'supports#donate_product_price', as: :donate_product_price
         end
         scope module: 'supports' do
           resource :orders, only: [:create, :new]

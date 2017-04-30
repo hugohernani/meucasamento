@@ -10,7 +10,7 @@
 
     <div class="row context-block">
       <legend>Dados da Doação</legend>
-      <p>Valor: <%= number_to_currency(@donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></p>
+      <p>Valor: <strong><%= number_to_currency(@donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></strong></p>
       <input id='price' type="hidden" value="<%= @donation.price %>">
       <div id="payment_datas"></div>
     </div>

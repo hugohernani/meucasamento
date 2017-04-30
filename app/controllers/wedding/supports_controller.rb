@@ -32,6 +32,12 @@ module Wedding
       end
     end
 
+    def donate_product_price
+      donation = CreateProductDonationService.perform(@current_event, params[:product_id])
+      redirect_to new_wedding_support_orders_path(
+        support_id: @current_event.wedding_support.id, donation_id: donation.id)
+    end
+
     private
     def store
       @store ||= Store.find(params[:store_id])
