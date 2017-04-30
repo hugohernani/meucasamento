@@ -9,6 +9,12 @@
     <div class="alert alert-warning" role="alert">
       <span class="feature-text"><%= current_store.address %></span>
     </div>
+    <div class="alert alert-info" role="alert">
+      <span>
+        As imagens são meramente ilustrativas. Clique no botão <strong>doar</strong>,
+        se você prefere doar o valor do produto sem sair de casa. :)
+      </span>
+    </div>
   </div>
   <div class="row">
     <% current_store.products.without_handlings.each_slice(6).each do |product_slice| %>
