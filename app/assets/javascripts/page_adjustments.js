@@ -28,7 +28,16 @@ toggleSong = function(elem_id){
   });
 }
 
-close_flash_message = function(){
+$.ajaxSetup({
+  beforeSend: function() {
+    console.log("before");
+  },
+  afterSend: function(){
+    console.log("after");
+  }
+});
+
+ready_function = function(){
   toggleSong('volume-icon-btn');
 
   $("#flash-message").delay(8000).hide('slow')
@@ -45,4 +54,8 @@ close_flash_message = function(){
   });
 };
 
-$(document).ready(close_flash_message);
+$(document).ready(ready_function).ajaxStart(function(){
+  $("body").addClass("loading");
+}).ajaxStop(function(){
+  $("body").removeClass("loading");
+});
