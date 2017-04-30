@@ -636,6 +636,22 @@ footer {
   color: #000;
 }
 
+.general-divider {
+  color: #000;
+  display: block;
+  margin: 30px 0;
+  opacity: 0.1;
+  text-align: center;
+}
+
+.general-divider span {
+  border-top: 1px solid #000;
+  display: inline-block;
+  margin: 4px 10px;
+  width: 90px;
+}
+
+
 /* RESPONSIVE STYLES
 =========================================================================================*/
 
