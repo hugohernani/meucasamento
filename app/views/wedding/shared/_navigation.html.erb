@@ -14,18 +14,24 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Home', root_path %></li>
         <li>
-          <%= link_to 'Sobre nós', '#about' %>
+          <%- current_about_path = request.path == "/" ? '#about' : "#{root_path}#about" %>
+          <%= link_to 'Sobre nós', current_about_path %>
         </li>
         <li>
           <%= link_to 'Lista de Presentes', wedding_supports_path %>
         </li>
-        <li><%= link_to 'Nossa história', '#story' %></li>
+
+        <%- current_story_path = request.path == "/" ? '#story' : "#{root_path}#story" %>
+        <li><%= link_to 'Nossa história', current_story_path %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pessoas <b class="caret"></b></a>
+          <%- current_people_path = request.path == "/" ? '#people' : "#{root_path}#people" %>
+          <%- current_parents_path = request.path == "/" ? '#parents' : "#{root_path}#parents" %>
+          <%- current_witnesses_path = request.path == "/" ? '#witnesses' : "#{root_path}#witnesses" %>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Mais Importantes', "#people" %></li>
-            <li><%= link_to 'Pais', "#parents" %></li>
-            <li><%= link_to 'Testemunhas', "#witnesses" %></li>
+            <li><%= link_to 'Mais Importantes', current_people_path %></li>
+            <li><%= link_to 'Pais', current_parents_path %></li>
+            <li><%= link_to 'Testemunhas', current_witnesses_path %></li>
           </ul>
         </li>
         <!-- <li class="dropdown">
@@ -36,10 +42,12 @@
             <li><a href="post.html">Blog Single Post</a></li>
           </ul>
         </li> -->
+        <%- current_gallery_path = request.path == "/" ? '#gallery' : "#{root_path}#gallery" %>
         <% if @current_event.gallery.assets.any? %>
-          <li><%= link_to 'Galeria', '#gallery' %></li>
+          <li><%= link_to 'Galeria', current_gallery_path %></li>
         <% end %>
-        <li><%= link_to 'Localização', '#localizacao' %></li>
+        <%- current_localization_path = request.path == "/" ? '#localizacao' : "#{root_path}#localizacao" %>
+        <li><%= link_to 'Localização', current_localization_path %></li>
       </ul>
     </div>
   </div>
