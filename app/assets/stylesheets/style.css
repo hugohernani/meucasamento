@@ -677,6 +677,9 @@ body.loading .modal {
     display: block;
 }
 
+#localization-details > .row{
+  background-color: white;
+}
 
 
 /* RESPONSIVE STYLES
