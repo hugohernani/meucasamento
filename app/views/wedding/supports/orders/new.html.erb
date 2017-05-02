@@ -74,7 +74,7 @@
             <div class="form-group">
               <label class="col-sm-3 control-label">Email</label>
               <div class="col-sm-4">
-                <%= f.text_field :email, class: "form-control", placeholder: 'ex. c12336080542705011354@sandbox.pagseguro.com.br', required: true %>
+                <%= f.text_field :email, class: "form-control", placeholder: 'ex. fulano@gmail.com', required: true %>
               </div>
               <%= "*No sandbox use o email: c12336080542705011354@sandbox.pagseguro.com.br" if Rails.env.development? %>
             </div>
