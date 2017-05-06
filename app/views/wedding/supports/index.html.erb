@@ -164,7 +164,7 @@
         <div class="row">
           <div class="col-sm-12 form-group">
             <div class="row">
-              <% @current_event.wedding_list.donations.each do |donation| %>
+              <% @current_event.wedding_list.donations.not_as_product.each do |donation| %>
                 <%= link_to new_wedding_support_orders_path(support_id: @current_event.wedding_support.id, donation_id: donation.id) do %>
                   <div class="col-sm-3 form-group">
                     <div class="btn btn-primary"><%= number_to_currency(donation.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
