@@ -10,8 +10,6 @@ class FianceAbout < ApplicationRecord
                                         inverse_of: :owner,
                                         required: true
 
-  validates :content, presence: true
-
   accepts_nested_attributes_for :assets, reject_if: :all_blank, allow_destroy: true
 
   def to_s

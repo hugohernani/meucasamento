@@ -15,7 +15,9 @@
           </span>
         </div>
         <h5><%= @current_event.groom.social_name %></h5>
+        <% if @current_event.groom.about_us.content.present? %>
         <p><%= @current_event.groom.about_us.content %></p>
+        <% end %>
         <ul class="social-icons">
           <li>
             <%= link_to 'https://www.facebook.com/Hernnani', target: '_blank' do %>
@@ -38,7 +40,9 @@
           </span>
         </div>
         <h5><%= @current_event.bride.social_name %></h5>
+        <% if @current_event.bride.about_us.content.present? %>
         <p><%= @current_event.bride.about_us.content %></p>
+        <% end %>
         <ul class="social-icons">
           <li>
             <%= link_to 'https://www.facebook.com/natalylua', target: '_blank' do %>
