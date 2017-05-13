@@ -21,17 +21,28 @@
       <div class="col-sm-12">
         <div class="row">
           <% product_slice.each do |product| %>
-            <div class="col-sm-2 product-item">
-              <%= link_to show_product_wedding_supports_path(product_id: product.id, format: :js), remote: true, method: :post do %>
+            <div class="col-sm-2 product-item <%= product.sold?? 'sold' : '' %>">
+              <% if product.sold? %>
                 <%= product.name %>
                 <br />
                 <%= image_tag attachment_path(product.attachment, :smaller), class: 'img-responsive img-circle', alt: "#{product.name}" %>
                 <br />
-                <div class="btn btn-info"><%= number_to_currency(product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
-              <% end %>
-              <% if(product.price >= BigDecimal.new('80')) %>
-                <%= link_to 'Doar', donate_product_price_wedding_supports_path(
-                  product_id: product.id), class: 'btn btn-primary' %>
+                <span class="img-rounded">
+                  <i class="fa fa-stop-circle"></i>
+                </span>
+                <div class="btn btn-danger">Vendido</div>
+              <% else %>
+                <%= link_to show_product_wedding_supports_path(product_id: product.id, format: :js), remote: true, method: :post do %>
+                  <%= product.name %>
+                  <br />
+                  <%= image_tag attachment_path(product.attachment, :smaller), class: 'img-responsive img-circle', alt: "#{product.name}" %>
+                  <br />
+                  <div class="btn btn-info"><%= number_to_currency(product.price, :unit => "R$ ", :separator => ",", :delimiter => ".") %></div>
+                <% end %>
+                <% if(product.price >= BigDecimal.new('80')) %>
+                  <%= link_to 'Doar', donate_product_price_wedding_supports_path(
+                    product_id: product.id), class: 'btn btn-primary' %>
+                <% end %>
               <% end %>
             </div>
           <% end %>

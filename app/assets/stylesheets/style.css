@@ -535,6 +535,16 @@ footer {
   clear: both;
 }
 
+.sold *:hover{
+  cursor: no-drop;
+}
+
+.sold .btn{
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
 #wedding-support{
   color: #de0000;
 }
