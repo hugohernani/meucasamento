@@ -145,10 +145,17 @@
 <section id="doacao-container">
   <div class="container text-center">
     <div class="row">
-      <div class="col-sm-12 heading" data-scroll-reveal>
-        <h2>Doação</h2>
-        <%= @current_event.wedding_support.donations_call_message %>
-        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      <div class="col-sm-12" data-scroll-reveal>
+        <div class="heading">
+          <h2>Doação</h2>
+          <%= @current_event.wedding_support.donations_call_message %>
+          <p><span></span><i class="fa fa-heart"></i><span></span></p>
+        </div>
+        <div class="alert alert-warning" role="alert">
+          <span>
+            Não se preocupe. Não salvamos nenhum dos dados do seu cartão de crédito. Apenas facilitamos a operação entre você e o PagSeguro.
+          </span>
+        </div>
       </div>
     </div>
 
