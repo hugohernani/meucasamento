@@ -540,7 +540,17 @@ footer {
   text-decoration: none;
 }
 
-.sold .btn .btn-danger:hover{
+.sold-alert{
+  color: white;
+  background-color: red;
+  padding: 2px;
+}
+
+.sold{
+  text-transform: uppercase;
+}
+
+.sold *:hover{
   cursor: no-drop;
 }
 
@@ -548,6 +558,10 @@ footer {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+}
+
+.sold .btn-primary{
+  cursor: pointer;
 }
 
 #wedding-support{
