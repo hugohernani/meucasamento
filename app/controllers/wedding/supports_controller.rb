@@ -27,6 +27,7 @@ module Wedding
     def update_product
       @product_handling = @product.handlings.new(product_handling_params)
       if @product_handling.save
+        @product.update_column(:sold, true)
         redirect_to "#{wedding_supports_path}#lista-de-presentes",
           notice: "Obrigado! Noivos serão notificados"
       end

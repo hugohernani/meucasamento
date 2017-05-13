@@ -535,6 +535,11 @@ footer {
   clear: both;
 }
 
+.sold {
+  color: #d6516d;
+  text-decoration: none;
+}
+
 .sold .btn .btn-danger:hover{
   cursor: no-drop;
 }
