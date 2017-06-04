@@ -1,4 +1,4 @@
-<% if current_store.products.without_handlings.blank? %>
+<% if current_store.products.blank? %>
   <div class="alert alert-info" role="alert">
     <h4>Essa loja não contém mais produtos disponíveis.</h4>
   </div>
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="row">
-    <% current_store.products.without_handlings.each_slice(6).each do |product_slice| %>
+    <% current_store.products.each_slice(6).each do |product_slice| %>
       <div class="col-sm-12">
         <div class="row">
           <% product_slice.each do |product| %>
