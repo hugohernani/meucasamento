@@ -9,12 +9,6 @@ module Wedding
         @donation_form = DonationForm.new
       end
 
-      def donation_params
-        params.require(:donation_form).permit(:card_token, :sender_hash, :session_id, :name, :email, :cpf,
-                      :phone_code, :phone_number, :birthday, :card_name, :card_number,
-                      :card_month, :card_year, :card_cvv, :card_options, :donation_id, :card_options)
-      end
-
       # Enviar nosso pagamento para o Pagseguro
       def create
         @donation_form = DonationForm.new(donation_params)
@@ -79,8 +73,9 @@ module Wedding
          }
         }
 
+        # TODO It needs to receive the installment_value (valor da parcela)
         payment.installment = {
-         value: @product.price,
+         value: donation_params[:card_installment_value],
          quantity: donation_params[:card_options].to_i
         }
 
@@ -111,6 +106,14 @@ module Wedding
 
       def index
         @orders = Order.all
+      end
+
+      private
+      def donation_params
+        params.require(:donation_form).permit(:card_token, :sender_hash, :session_id, :name, :email, :cpf,
+                      :phone_code, :phone_number, :birthday, :card_name, :card_number,
+                      :card_month, :card_year, :card_cvv, :card_options, :donation_id, :card_options,
+                      :card_installment_value)
       end
     end
   end

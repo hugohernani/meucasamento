@@ -45,6 +45,11 @@ $(document).ready(function() {
   $("#card-number").on('input', function() {
     card_flag();
   });
+
+  // Atualiza o field escondido com o valor a ser parcelado
+  $("#card-options").change(function(){
+    $(".installment_value_field").val($(this).find(":selected").data('installmentAmount'));
+  });
 })
 
 
@@ -105,6 +110,7 @@ function showPaymentOptions(flag, price)
        $("#card-options")
        .append($("<option></option>")
                   .attr("value",value['quantity'])
+                  .attr("data-installment-amount", value['installmentAmount'])
                   .text("$"+value['installmentAmount']+" x "+value['quantity']+" - total: $"+value['totalAmount']));
      });
    },
