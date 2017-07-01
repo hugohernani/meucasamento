@@ -13,6 +13,9 @@
       <div class="col-sm-12 heading text-center" data-scroll-reveal>
         <h2>Blog</h2>
         <p><span></span><i class="fa fa-heart"></i><span></span></p>
+        <% if @blog.posts.empty? %>
+          <h6>Ainda não há posts</h6>
+        <% end %>
       </div>
     </div>
 
@@ -37,19 +40,21 @@
       </div>
     <% end %>
 
-    <div class="row paging">
-      <div class="col-sm-12 text-center" data-scroll-reveal>
-        <ul class="pagination">
-          <li class="disabled"><a href="#">&laquo;</a></li>
-          <li class="active"><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li><a href="#">&raquo;</a></li>
-        </ul>
+    <% if @blog.posts.any? %>
+      <div class="row paging">
+        <div class="col-sm-12 text-center" data-scroll-reveal>
+          <ul class="pagination">
+            <li class="disabled"><a href="#">&laquo;</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&raquo;</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
+    <% end %>
 
   </div>
 </section>
