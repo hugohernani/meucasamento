@@ -20,6 +20,10 @@ if demo_event.love_story.blank?
   demo_love_story.save
 end
 
+if demo_event.blog.blank?
+  demo_event_blog = demo_event.build_blog
+end
+
 hugo_and_luana_event = Event.find_or_initialize_by(name: 'hugoeluana')
 hugo_and_luana_event.description = "Casal Perfeito"
 hugo_and_luana_event.event_type = Event.event_types[:wedding]

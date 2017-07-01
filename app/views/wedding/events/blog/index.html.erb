@@ -1,0 +1,57 @@
+<!-- ========== MENU START ========== -->
+
+<%= render 'wedding/shared/navigation' %>
+
+<!-- ========== MENU END START ========== -->
+
+<!-- ========== BLOG START ========== -->
+
+<section>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-12 heading text-center" data-scroll-reveal>
+        <h2>Blog</h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+
+    <!-- POST START -->
+
+    <% @blog.posts.each do |post| %>
+      <div class="row post">
+        <div class="col-sm-4" data-scroll-reveal="enter from the left">
+          <%= image_tag(attachment_path(post.image.attachment, :medium), class: "img-responsive img-rounded", alt: post.title) %>
+        </div>
+        <div class="col-sm-8" data-scroll-reveal="enter from the right after 0.5s">
+          <h6 class="post-header"><span><%= I18n.l post.published_at.to_date, format: :short %></span> <%= post.title %></h6>
+          <p class="post-meta">
+            <span><i class="fa fa-calendar"></i><%= I18n.l post.created_at.to_date, format: :short %></span>
+            <span><i class="fa fa-folder"></i>Events &amp; Parties</span>
+          </p>
+          <p class="post-intro"><%= post.content.truncate_words(50) %></p>
+          <p class="post-button">
+            <%= link_to 'Leia Mais', wedding_post_path(post), class: 'btn btn-primary btn-lg' %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row paging">
+      <div class="col-sm-12 text-center" data-scroll-reveal>
+        <ul class="pagination">
+          <li class="disabled"><a href="#">&laquo;</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== BLOG END ========== -->

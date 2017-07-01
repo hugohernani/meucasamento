@@ -35,6 +35,7 @@ class Asset < ApplicationRecord
       {
         background: '1600x1600#',
         slider: '1600x900>',
+        post_center: '1200x780#',
         medium: '370x370>',
         small: '270x270>',
         smaller: '170x170>'

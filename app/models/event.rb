@@ -19,6 +19,9 @@ class Event < ApplicationRecord
   has_one :wedding_support,             class_name: WeddingSupport,
                                         inverse_of: :event,
                                         dependent: :destroy
+  has_one :blog,                        class_name: Blog,
+                                        inverse_of: :event,
+                                        dependent: :destroy
   has_one :wedding_list,                class_name: WeddingList,
                                         through: :wedding_support
   has_many :stores,                     class_name: Store,

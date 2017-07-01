@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170513171707) do
+ActiveRecord::Schema.define(version: 20170630224713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,24 @@ ActiveRecord::Schema.define(version: 20170513171707) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.index ["wedding_support_id"], name: "index_bank_accounts_on_wedding_support_id", using: :btree
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_blogs_on_event_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
   end
 
   create_table "donations", force: :cascade do |t|
@@ -146,6 +164,17 @@ ActiveRecord::Schema.define(version: 20170513171707) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["donation_id"], name: "index_orders_on_donation_id", using: :btree
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.datetime "published_at"
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.integer  "blog_id"
+    t.integer  "status",       default: 0
+    t.index ["blog_id"], name: "index_posts_on_blog_id", using: :btree
   end
 
   create_table "product_handlings", force: :cascade do |t|
@@ -245,6 +274,7 @@ ActiveRecord::Schema.define(version: 20170513171707) do
   end
 
   add_foreign_key "bank_accounts", "wedding_supports"
+  add_foreign_key "blogs", "events"
   add_foreign_key "donations", "products"
   add_foreign_key "donations", "wedding_lists"
   add_foreign_key "event_images", "events"
@@ -255,6 +285,7 @@ ActiveRecord::Schema.define(version: 20170513171707) do
   add_foreign_key "fun_facts", "events"
   add_foreign_key "love_stories", "events"
   add_foreign_key "orders", "donations"
+  add_foreign_key "posts", "blogs"
   add_foreign_key "product_handlings", "products"
   add_foreign_key "products", "stores"
   add_foreign_key "stores", "wedding_lists"

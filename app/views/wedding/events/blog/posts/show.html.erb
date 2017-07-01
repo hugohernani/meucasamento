@@ -1,0 +1,109 @@
+<!-- ========== MENU START ========== -->
+
+<%= render 'wedding/shared/navigation' %>
+
+<!-- ========== MENU END START ========== -->
+
+<!-- ========== BLOG START ========== -->
+
+<section>
+  <div class="container">
+
+    <div class="row">
+      <div class="col-sm-12 heading text-center" data-scroll-reveal>
+        <h2><%= @post.title %></h2>
+        <p><span></span><i class="fa fa-heart"></i><span></span></p>
+      </div>
+    </div>
+
+    <!-- POST START -->
+    <div class="row">
+      <div class="col-sm-12" data-scroll-reveal>
+        <p class="post-meta text-center">
+          <span><i class="fa fa-calendar"></i><%= I18n.l @post.published_at.to_date, format: :short %></span>
+          <span><i class="fa fa-folder"></i>Events &amp; Parties</span>
+        </p>
+        <p data-scroll-reveal>
+          <%= image_tag(attachment_path(@post.image.attachment, :post_center), class: "img-responsive img-rounded", alt: @post.title) %>
+        </p>
+        <p><%= @post.content.truncate_words(50) %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6" data-scroll-reveal="enter from the left">
+        <% if @previous_post %>
+          <%= link_to wedding_post_path(@previous_post), class: 'btn btn-primary btn-lg' do %>
+            <i class="fa fa-chevron-left"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-xs-6 text-right" data-scroll-reveal="enter from the right after 0.25s">
+        <% if @next_post %>
+          <%= link_to wedding_post_path(@next_post), class: 'btn btn-primary btn-lg' do %>
+            <i class="fa fa-chevron-right"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <!-- POST END -->
+
+    <!-- COMMENTS START -->
+    <div class="row">
+      <div class="col-sm-12">
+        <hr>
+        <h3 class="text-center">Comentários</h3>
+        <ul class="media-list">
+          <% if @post.comments.any? %>
+          <% else %>
+            Não há comentários
+          <% end %>
+          <% @post.comments.each do |comment| %>
+            <li class="media">
+              <div class="media-body">
+                <h6 class="media-heading"><%= comment.name %></h6>
+                <p class="post-meta">
+                  <span><i class="fa fa-calendar"></i><%= I18n.l comment.created_at.to_date, format: :short %></span>
+                  <span><i class="fa fa-folder"></i>Events &amp; Parties</span>
+                </p>
+                <p><%= comment.content %></p>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <!-- COMMENTS END -->
+
+    <!-- COMMENT FORM START -->
+    <div class="row">
+      <div class="col-sm-12 text-center" data-scroll-reveal>
+        <hr>
+        <h3>Faça um comentário</h3>
+      </div>
+    </div>
+    <form role="form">
+      <div class="row" data-scroll-reveal>
+        <div class="form-group col-sm-6">
+          <input type="text" class="form-control" id="input-name" placeholder="Nome">
+        </div>
+        <div class="form-group col-sm-6">
+          <input type="email" class="form-control" id="input-email" placeholder="Email">
+        </div>
+      </div>
+      <div class="row" data-scroll-reveal>
+        <div class="form-group col-sm-12">
+          <textarea class="form-control" rows="5"></textarea>
+        </div>
+      </div>
+      <div class="row" data-scroll-reveal>
+        <div class="form-group col-sm-12 text-center">
+          <button type="submit" class="btn btn-lg btn-primary">Enviar</button>
+        </div>
+      </div>
+    </form>
+    <!-- COMMENTS FORM END -->
+
+  </div>
+</section>
+
+<!-- ========== BLOG END ========== -->

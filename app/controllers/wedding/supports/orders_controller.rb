@@ -73,7 +73,6 @@ module Wedding
          }
         }
 
-        # TODO It needs to receive the installment_value (valor da parcela)
         payment.installment = {
          value: donation_params[:card_installment_value],
          quantity: donation_params[:card_options].to_i
