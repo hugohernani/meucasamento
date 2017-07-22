@@ -4,4 +4,8 @@ class Gallery < EventImage
 
   # Validations
   # validates :assets, length: { maximum: 20 }
+
+  def to_s
+    event.to_s
+  end
 end

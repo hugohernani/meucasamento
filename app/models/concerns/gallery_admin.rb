@@ -4,6 +4,9 @@ module GalleryAdmin
   included do
     rails_admin do
       edit do
+        configure :event do
+          read_only true
+        end
         configure :assets do
           help false
           inline_add do

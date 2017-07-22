@@ -3,7 +3,7 @@ class EventImage < ApplicationRecord
   has_many :assets, as: :owner, inverse_of: :owner
 
   # Validations
-  validates :assets, length: { minimum: 1 }
+  # validates :assets, length: { minimum: 1 }
 
   # Coccon Setup
   accepts_nested_attributes_for :assets, reject_if: :all_blank, allow_destroy: true
