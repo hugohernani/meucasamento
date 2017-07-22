@@ -11,7 +11,7 @@ class AdminAbility
 
     can :read, :all
 
-    main_models = ApplicationRecord.descendants.map(&:name)
+    main_models = ApplicationRecord.descendants
 
     account_roles = account.roles.map(&:name)
     if account_roles.any?
@@ -20,13 +20,16 @@ class AdminAbility
       if account_roles.include? "super_admin"
         can :manage, :all
       elsif account_roles.include? "fiance"
+        can :manage, :all
         cannot :manage, main_models
-        cannot :read, :all
+        # can :access, :rails_admin
+        # cannot :manage, main_models
+        # cannot :read, [AccountRole, Role]
         can [:index, :edit], Event, event_participants: { participant_id: account.id }
         can [:index, :edit, :new, :destroy], WeddingWitnessCouple, fiance_id: account.id
         can [:index, :edit], FianceAbout, fiance_id: account.id
         can [:index, :edit], LoveStory, event: { event_participants: { participant_id: account.id } }
-        can [:index, :edit], Gallery, event_id: current_event.try(:id)
+        can [:index, :edit, :dropzone], Gallery, event_id: current_event.try(:id)
       end
     end
   end

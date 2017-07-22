@@ -50,6 +50,10 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     history_index
     history_show
+
+    dropzone do
+      only 'Gallery'
+    end
   end
 
   config.parent_controller = '::ApplicationController'
