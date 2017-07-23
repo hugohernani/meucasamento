@@ -3,10 +3,8 @@ $("#gallery-images-container").html("<%= j render(partial: 'wedding/events/list_
 $(".flickr_pagination a").each(function(e){
   $(this).attr('data-remote', true);
   $(this).ajaxSend(function(){
-    console.log("TestingBefore");
     Pace.options.ajax = false;
   }).ajaxComplete(function(){
-    console.log("TestingComplete");
     Pace.options.ajax = true;
   });
 })

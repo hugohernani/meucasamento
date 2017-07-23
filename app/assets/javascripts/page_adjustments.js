@@ -59,10 +59,8 @@ ready_function = function(){
       $(this).attr('data-remote', true);
 
       $(this).ajaxSend(function(){
-        console.log("TestingBefore");
         Pace.options.ajax = false;
       }).ajaxComplete(function(){
-        console.log("TestingComplete");
         Pace.options.ajax = true;
       });
     })

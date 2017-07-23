@@ -3,7 +3,7 @@ module Wedding
 
     def gallery_images
       @gallery_images = @current_event.gallery.assets
-        .paginate(page: params[:page], per_page: 25)
+        .paginate(page: params[:page], per_page: 24)
     end
   end
 end

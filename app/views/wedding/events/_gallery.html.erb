@@ -7,7 +7,7 @@
       </div>
     </div>
     <div id="gallery-images-container">
-      <% gallery_images = @current_event.gallery.assets.paginate(page: 1, per_page: 25) %>
+      <% gallery_images = @current_event.gallery.assets.paginate(page: 1, per_page: 24) %>
       <%= render partial: 'list_gallery_images', locals: { gallery_images: gallery_images } %>
     </div>
   </div>
