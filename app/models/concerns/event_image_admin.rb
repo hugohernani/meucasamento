@@ -2,8 +2,10 @@ module EventImageAdmin
   extend ActiveSupport::Concern
 
   included do
+    require 'exifr/jpeg'
     def create_associated_image(image)
-      assets.create(attachment: image)
+      capture_date = EXIFR::JPEG.new(image.tempfile).date_time rescue nil
+      assets.create(attachment: image, capture: capture_date.try(:to_datetime))
     end
 
     rails_admin do

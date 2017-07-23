@@ -5,6 +5,12 @@ GIT
     remotipart (1.3.1)
 
 GIT
+  remote: https://github.com/remvee/exifr.git
+  revision: 8fd1bbdd49babc318670c261512eaa0db657fceb
+  specs:
+    exifr (1.3.1)
+
+GIT
   remote: https://github.com/sferik/rails_admin.git
   revision: 19a1a5e203ee3ae3e161640ba7e4102379eaafa6
   specs:
@@ -316,6 +322,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails (~> 2.1.1)
+  exifr!
   factory_girl_rails (~> 4.7.0)
   friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)

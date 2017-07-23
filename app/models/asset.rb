@@ -15,7 +15,7 @@ class Asset < ApplicationRecord
 
   validates_attachment_presence :attachment
   validates_attachment_content_type :attachment, content_type: IMAGE_CONTENT_TYPES
-  validates_attachment_file_name :attachment, matches: [/png\Z/, /jpe?g\Z/, /gif\Z/]
+  validates_attachment_file_name :attachment, matches: [/png\Z/, /jpe?g\Z/i, /gif\Z/]
   validates_attachment_size :attachment, :less_than => 5.megabytes
 
   before_validation { self.asset.clear if self.delete_asset == '1' }

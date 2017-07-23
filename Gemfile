@@ -71,6 +71,8 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'will_paginate'
 
+gem 'exifr', github: 'remvee/exifr'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.1'
   gem 'byebug', platform: :mri
