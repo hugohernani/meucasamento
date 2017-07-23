@@ -1,17 +1,20 @@
-<div class="row" id="gallery-holding">
+<div id="gallery-holding">
   <ul class="gallery">
-    <% gallery_images.each do |asset| %>
-      <li class="col-xs-4 col-sm-3 col-md-2">
-        <%= link_to asset.attachment.url, class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
-          <%= image_tag attachment_path(asset.attachment, :smaller), class: 'img-rounded img-responsive', alt: "" %>
-          <span class="img-rounded">
-            <i class="fa fa-search fa-3x"></i>
-          </span>
-        <% end %>
-      </li>
+    <% gallery_images.each_slice(6).with_index do |asset_slice, index_slice| %>
+      <% asset_slice.each do |asset| %>
+        <li class="col-xs-4 col-sm-3 col-md-2">
+          <%= link_to asset.attachment.url, class: "fancybox hover-effect", data: { 'fancybox-group':"group" } do %>
+            <%= image_tag attachment_path(asset.attachment, :smaller), class: 'img-rounded img-responsive', alt: "" %>
+            <span class="img-rounded">
+              <i class="fa fa-search fa-3x"></i>
+            </span>
+          <% end %>
+        </li>
+      <% end %>
+      <div class="clear clearfix"></div>
     <% end %>
   </ul>
-</div>
+</ul>
 
 <div class="flickr_pagination">
   <div class="page_info">
