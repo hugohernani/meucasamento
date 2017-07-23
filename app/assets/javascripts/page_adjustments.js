@@ -57,6 +57,14 @@ ready_function = function(){
   if(pagination_links.length > 0){
     pagination_links.each(function(e){
       $(this).attr('data-remote', true);
+
+      $(this).ajaxSend(function(){
+        console.log("TestingBefore");
+        Pace.options.ajax = false;
+      }).ajaxComplete(function(){
+        console.log("TestingComplete");
+        Pace.options.ajax = true;
+      });
     })
   }
 };
