@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     root to: 'wedding/events#index'
     scope module: :wedding do
       resources :events do
-        get 'gallery_images', on: :collection
+        post 'gallery_images', on: :collection
       end
     end
     scope path: :casamento, module: :wedding, as: :wedding do

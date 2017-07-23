@@ -57,6 +57,7 @@ ready_function = function(){
   if(pagination_links.length > 0){
     pagination_links.each(function(e){
       $(this).attr('data-remote', true);
+      $(this).attr('data-method', 'post');
 
       $(this).ajaxSend(function(){
         Pace.options.ajax = false;

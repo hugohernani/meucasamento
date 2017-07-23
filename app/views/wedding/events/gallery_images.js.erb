@@ -2,6 +2,7 @@ $("#gallery-images-container").html("<%= j render(partial: 'wedding/events/list_
 
 $(".flickr_pagination a").each(function(e){
   $(this).attr('data-remote', true);
+  $(this).attr('data-method', 'post');
   $(this).ajaxSend(function(){
     Pace.options.ajax = false;
   }).ajaxComplete(function(){
