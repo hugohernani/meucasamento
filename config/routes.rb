@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   constraints EventSubdomainConstraint.new do
     root to: 'wedding/events#index'
     scope module: :wedding do
-      resources :events
+      resources :events do
+        get 'gallery_images', on: :collection
+      end
     end
     scope path: :casamento, module: :wedding, as: :wedding do
       scope module: :events do

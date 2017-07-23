@@ -1,0 +1,7 @@
+$("#gallery-images-container").html("<%= j render(partial: 'wedding/events/list_gallery_images', locals: {gallery_images: @gallery_images}) %>");
+
+$(".flickr_pagination a").each(function(e){
+  $(this).attr('data-remote', true);
+})
+
+$("#gallery-nav-link").click();

@@ -52,6 +52,13 @@ ready_function = function(){
     startView: 2,
     assumeNearbyYear: true,
   });
+
+  pagination_links = $(".flickr_pagination a");
+  if(pagination_links.length > 0){
+    pagination_links.each(function(e){
+      $(this).attr('data-remote', true);
+    })
+  }
 };
 
 $(document).ready(ready_function).ajaxStart(function(){

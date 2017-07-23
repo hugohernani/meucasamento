@@ -41,7 +41,7 @@
 
         <%- current_gallery_path = request.path == "/" ? '#gallery' : "#{root_path}#gallery" %>
         <% if @current_event.gallery.assets.any? %>
-          <li><%= link_to 'Galeria', current_gallery_path %></li>
+          <li><%= link_to 'Galeria', current_gallery_path, id: 'gallery-nav-link' %></li>
         <% end %>
         <%- current_localization_path = request.path == "/" ? '#localizacao' : "#{root_path}#localizacao" %>
         <li><%= link_to 'Localização', current_localization_path %></li>

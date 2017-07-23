@@ -69,6 +69,8 @@ gem "pagseguro-oficial", "~> 2.5.0"
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'will_paginate'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.5.1'
   gem 'byebug', platform: :mri
