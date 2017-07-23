@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170630224713) do
+ActiveRecord::Schema.define(version: 20170723020820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,10 +46,11 @@ ActiveRecord::Schema.define(version: 20170630224713) do
     t.string   "attachment_file_id"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.integer  "position",                default: 0
     t.index ["owner_type", "owner_id"], name: "index_assets_on_owner_type_and_owner_id", using: :btree
   end
 
@@ -70,6 +71,19 @@ ActiveRecord::Schema.define(version: 20170630224713) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_blogs_on_event_id", using: :btree
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "data_fingerprint"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type", using: :btree
   end
 
   create_table "comments", force: :cascade do |t|
