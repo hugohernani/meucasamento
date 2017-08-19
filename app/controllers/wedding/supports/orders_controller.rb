@@ -44,15 +44,15 @@ module Wedding
         }
 
         shipping_address = {
-          type_name: "sedex",
+          type_name: ENV['DEV_SHIPPING_TYPE'],
           address: {
-            street: "Rua José Calumby",
-            number: "1380",
-            complement: "Cond Ilhas de Santo Aleixo B 402",
-            city: "Aracaju",
-            state: "SE",
-            district: "Pereira Lopo",
-            postal_code: "49030020"
+            street: ENV['DEV_SHIPPING_STREET'],
+            number: ENV['DEV_SHIPPING_NUMBER'],
+            complement: ENV['DEV_SHIPPING_COMPLEMENT'],
+            city: ENV['DEV_SHIPPING_CITY'],
+            state: ENV['DEV_SHIPPING_STATE'],
+            district: ENV['DEV_SHIPPING_DISTRICT'],
+            postal_code: ENV['DEV_SHIPPING_POSTAL_CODE']
           }
         }
 

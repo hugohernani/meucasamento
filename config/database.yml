@@ -16,5 +16,5 @@ test:
 production:
   <<: *default
   database: meucasamento_production
-  username: meucasamento
+  username: <%= ENV['MEUCASAMENTO_DATABASE_USERNAME'] %>
   password: <%= ENV['MEUCASAMENTO_DATABASE_PASSWORD'] %>
